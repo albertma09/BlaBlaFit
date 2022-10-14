@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/drawable/borde_boton.xml" value="0.1935" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/drawable/borde_edit_text.xml" value="0.144" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/drawable/forma_circular.xml" value="0.1945" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/drawable/splashscreen.xml" value="0.16" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_enviar_contrasenya.xml" value="0.33" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_main.xml" value="0.10643115942028986" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_recupera_contrasenya.xml" value="0.33" />
       </map>
     </option>
   </component>
