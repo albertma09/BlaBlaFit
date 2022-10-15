@@ -5,4 +5,5 @@
     <string name="input_password">Contraseña</string>
     <string name="recordar_password">Recordar contraseña</string>
     <string name="sin_cuenta">No tienes cuenta?\n \t\tRegistrate</string>
+    <string name="nuevo_password">Nueva contraseña</string>
 </resources>
