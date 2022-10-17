@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">blablafit</string>
+    <string name="btn_enviar">Enviar</string>
+    <string name="input_mail">Correo electronico o usuario</string>
+    <string name="input_password">Contraseña</string>
+    <string name="recordar_password">Recordar contraseña</string>
+    <string name="sin_cuenta">No tienes cuenta?\n \t\tRegistrate</string>
+    <string name="repetir_password">Repetir contraseña</string>
+    <string name="nuevo_password">Nueva contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

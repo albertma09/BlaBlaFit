@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SplashTheme" parent="Theme.Blablafit">
+        <item name="android:windowSplashScreenBackground">@color/purple_200</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/logo</item>
+        <item name="android:windowSplashScreenAnimationDuration">1500</item>
+    </style>
+</resources>
