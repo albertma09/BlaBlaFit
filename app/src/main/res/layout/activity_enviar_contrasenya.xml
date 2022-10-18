@@ -22,10 +22,9 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="230dp"
-        android:layout_height="46dp"
+        android:layout_width="297dp"
+        android:layout_height="57dp"
         android:layout_marginTop="120dp"
-        android:layout_marginEnd="92dp"
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
         android:hint="@string/input_mail"
@@ -33,8 +32,8 @@
         android:minHeight="48dp"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-         />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/button"
