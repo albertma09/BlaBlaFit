@@ -7,4 +7,11 @@
     <string name="sin_cuenta">No tienes cuenta?\n \t\tRegistrate</string>
     <string name="nuevo_password">Nueva contraseña</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mail">correo@correo.com</string>
+    <string name="profile">Foto usuario</string>
+    <string name="info_usuario">Nombre y Apellidos</string>
+    <string name="kcal_act">0</string>
+    <string name="kcal_objetivo">3499</string>
+    <string name="separador">/</string>
+    <string name="objetivo_usuario">Objetivo</string>
 </resources>

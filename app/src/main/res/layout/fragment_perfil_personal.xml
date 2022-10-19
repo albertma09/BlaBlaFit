@@ -15,28 +15,35 @@
             android:id="@+id/toolbar4"
             android:layout_width="409dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="1dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="411dp"
-            android:layout_height="228dp"
+            android:layout_width="413dp"
+            android:layout_height="268dp"
+            android:layout_marginBottom="240dp"
             android:background="@drawable/borde_edit_text"
-            tools:layout_editor_absoluteX="-1dp"
-            tools:layout_editor_absoluteY="268dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:id="@+id/imageView2"
             android:layout_width="124dp"
             android:layout_height="137dp"
             android:layout_marginTop="172dp"
             android:src="@drawable/profile"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="144dp"
             android:layout_marginTop="28dp"
-            android:text="Nombre y Apellidos"
+            android:text="@string/info_usuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -55,17 +62,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="correo@correo.com"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
-            tools:layout_editor_absoluteX="144dp" />
+            android:text="@string/mail"
+            app:layout_constraintEnd_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <TextView
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
-            android:text="0"
-            android:textSize="35dp"
+            android:text="@string/kcal_act"
+            android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.365"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,20 +83,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
-            android:text="/"
-            android:textSize="35dp"
+            android:text="@string/separador"
+            android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.445"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/objetivos_usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
-            android:text="3499"
-            android:textSize="35dp"
+            android:text="@string/kcal_objetivo"
+            android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.62"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,9 +106,10 @@
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="239dp"
-            android:layout_height="14dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="56dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginBottom="52dp"
+            android:maxHeight="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -109,9 +117,11 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Objetivo"
-            tools:layout_editor_absoluteX="170dp"
-            tools:layout_editor_absoluteY="602dp" />
+            android:layout_marginEnd="168dp"
+            android:layout_marginBottom="36dp"
+            android:text="@string/objetivo_usuario"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
