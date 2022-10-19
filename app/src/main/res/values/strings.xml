@@ -14,4 +14,12 @@
     <string name="kcal_objetivo">3499</string>
     <string name="separador">/</string>
     <string name="objetivo_usuario">Objetivo</string>
+    <string name="add_buton">añadir</string>
+    <string name="nuevo_objetivo">Nuevo objetivo</string>
+    <string name="objetivo_null">Sin objetivo</string>
+    <string name="altura">Altura (cm)</string>
+    <string name="peso">Peso (Kg)</string>
+    <string name="edad">Edad</string>
+    <string name="genero_masculino">M</string>
+    <string name="genero_femenino">M</string>
 </resources>

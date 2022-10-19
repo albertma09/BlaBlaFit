@@ -10,26 +10,33 @@
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="230dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="276dp"
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
-        android:hint="Altura (cm)"
+        android:hint="@string/altura"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="299dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="230dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:layout_marginTop="52dp"
+
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
-        android:hint="Peso (Kg)"
+        android:hint="@string/peso"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,18 +46,20 @@
     <EditText
         android:id="@+id/editTextTextPersonName1"
         android:layout_width="230dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
-        android:hint="Edad"
+        android:hint="@string/edad"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#2E7D32"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+         />
 
     <Button
         android:id="@+id/button"
@@ -60,10 +69,11 @@
         android:background="@drawable/borde_boton"
         android:text="@string/btn_enviar"
         app:backgroundTint="@color/butoncolor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -83,38 +93,42 @@
         android:layout_marginEnd="104dp"
         android:src="@drawable/chica"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+         />
+
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="57dp"
         android:layout_height="108dp"
-        android:layout_marginStart="136dp"
+        android:layout_marginStart="116dp"
         android:layout_marginTop="56dp"
         android:src="@drawable/chico"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+         />
 
-
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="61dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="116dp"
+        android:text="@string/genero_masculino"
+        android:textColor="#616161"
+        app:layout_constraintBottom_toBottomOf="@+id/radioButton"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <RadioButton
         android:id="@+id/radioButton"
         android:layout_width="49dp"
         android:layout_height="49dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="232dp"
-        android:text="M"
-        app:layout_constraintStart_toEndOf="@+id/radioButton2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="61dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="136dp"
-        android:text="H"
+        android:text="@string/genero_femenino"
         android:textColor="#616161"
-        app:layout_constraintBottom_toBottomOf="@+id/radioButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/radioButton2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

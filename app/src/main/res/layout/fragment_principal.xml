@@ -13,13 +13,16 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="4dp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="1dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView3"
@@ -71,32 +74,41 @@
             android:id="@+id/imageView3"
             android:layout_width="88dp"
             android:layout_height="101dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="128dp"
             android:src="@drawable/muslito"
-            tools:layout_editor_absoluteX="56dp"
-            tools:layout_editor_absoluteY="187dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="88dp"
             android:layout_height="118dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="88dp"
             android:src="@drawable/mapa"
-            tools:layout_editor_absoluteX="46dp"
-            tools:layout_editor_absoluteY="508dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="105dp"
             android:layout_height="92dp"
             android:src="@drawable/receta_ensalada_de_frutas_optima"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="408dp" />
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="116dp"
-            android:layout_height="110dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/dumbells"
-            tools:layout_editor_absoluteX="39dp"
-            tools:layout_editor_absoluteY="298dp" />
+            app:layout_constraintBottom_toTopOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
