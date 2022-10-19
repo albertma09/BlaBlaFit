@@ -36,6 +36,12 @@
     <string name="nuevo_password">Nueva contraseña</string>
     <string name="objetivo">Objetivo</string>
     <string name="fijar">Fijar</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="seleccionar_alimento">Seleccionar alimento</string>
+    <string name="todo">TODO</string>
+    <string name="_250ml">250ml</string>
+    <string name="guardar">Guardar</string>
+    <string name="a_adir_alimento_por_qr">Añadir alimento por QR</string>
 
 
 </resources>
