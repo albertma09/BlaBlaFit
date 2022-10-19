@@ -31,4 +31,6 @@
     <string name="rutina_para_5_dias">Rutina para 5 dias</string>
     <string name="entrenar_en_el_gimnasio">Entrenar en el gimnasio</string>
     <string name="entrenar_en_casa">Entrenar en casa</string>
+    <string name="rutinas">Rutinas</string>
+    <string name="alimentacio">Alimentacio</string>
 </resources>
