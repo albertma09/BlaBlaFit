@@ -71,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:text="Calorias" />
+                        android:text="@string/calorias" />
 
                 </LinearLayout>
 
@@ -93,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:text="Proteinas" />
+                        android:text="@string/proteinas" />
 
                 </LinearLayout>
 
@@ -115,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:text="Carbohidratos" />
+                        android:text="@string/carbohidratos" />
 
                 </LinearLayout>
 
@@ -137,7 +137,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:text="Grasas" />
+                        android:text="@string/grasas" />
 
                 </LinearLayout>
 

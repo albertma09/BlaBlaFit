@@ -7,4 +7,28 @@
     <string name="sin_cuenta">No tienes cuenta?\n \t\tRegistrate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="usuario_o_correo">Usuario o correo</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="no_tienes_cuenta_registrate">No tienes cuenta?Registrate</string>
+    <string name="has_olvidado_la_contrase_a_recuperar_contrase_a">Has olvidado la contraseña? Recuperar contraseña</string>
+    <string name="nombre_usuario">Nombre usuario</string>
+    <string name="ya_tienes_cuenta_inicia_sesion">Ya tienes cuenta?Inicia sesion</string>
+    <string name="he_leido_y_acepto_las_politicas_de_uso">He leido y acepto las politicas de uso</string>
+    <string name="blablafit">BlaBlaFit</string>
+    <string name="correo">Correo</string>
+    <string name="repetir_contrase_a">Repetir contraseña</string>
+    <string name="registrarme">Registrarme</string>
+    <string name="proteinas">Proteinas</string>
+    <string name="carbohidratos">Carbohidratos</string>
+    <string name="grasas">Grasas</string>
+    <string name="calorias">Calorias</string>
+    <string name="perder_grasa_corporal">Perder grasa corporal</string>
+    <string name="ganar_masa_muscular">Ganar masa muscular</string>
+    <string name="rutina_para_6_dias">Rutina para 6 dias</string>
+    <string name="rutina_para_3_dias">Rutina para 3 dias</string>
+    <string name="rutina_para_4_dias">Rutina para 4 dias</string>
+    <string name="rutina_para_5_dias">Rutina para 5 dias</string>
+    <string name="entrenar_en_el_gimnasio">Entrenar en el gimnasio</string>
+    <string name="entrenar_en_casa">Entrenar en casa</string>
 </resources>
