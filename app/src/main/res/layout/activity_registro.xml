@@ -57,7 +57,7 @@
         android:layout_height="62dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/esquina_redondeada"
-        android:hint="@string/repetir_contrase_a"
+        android:hint="@string/repetir_password"
         android:textColorHint="#2E7D32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

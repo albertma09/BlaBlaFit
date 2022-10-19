@@ -17,7 +17,7 @@
     <string name="he_leido_y_acepto_las_politicas_de_uso">He leido y acepto las politicas de uso</string>
     <string name="blablafit">BlaBlaFit</string>
     <string name="correo">Correo</string>
-    <string name="repetir_contrase_a">Repetir contraseña</string>
+    <string name="repetir_password">Repetir contraseña</string>
     <string name="registrarme">Registrarme</string>
     <string name="proteinas">Proteinas</string>
     <string name="carbohidratos">Carbohidratos</string>
@@ -33,4 +33,9 @@
     <string name="entrenar_en_casa">Entrenar en casa</string>
     <string name="rutinas">Rutinas</string>
     <string name="alimentacio">Alimentacio</string>
+    <string name="nuevo_password">Nueva contraseña</string>
+    <string name="objetivo">Objetivo</string>
+    <string name="fijar">Fijar</string>
+
+
 </resources>
