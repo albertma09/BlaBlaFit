@@ -95,7 +95,7 @@
             android:id="@+id/imageView6"
             android:layout_width="116dp"
             android:layout_height="110dp"
-            android:src="@drawable/entrenos"
+            android:src="@drawable/dumbells"
             tools:layout_editor_absoluteX="39dp"
             tools:layout_editor_absoluteY="298dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
