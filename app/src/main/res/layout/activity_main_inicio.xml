@@ -16,6 +16,7 @@
         android:background="@drawable/esquina_redondeada"
         android:hint="@string/usuario_o_correo"
         android:textColorHint="#2E7D32"
+        android:gravity="center"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +32,8 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/esquina_redondeada"
         android:hint="@string/contrase_a"
+        android:gravity="center"
+        android:inputType="textPassword"
         android:textColorHint="#2E7D32"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

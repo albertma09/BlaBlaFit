@@ -9,6 +9,6 @@ class MainActivityInicio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Blablafit)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_inicio)
+        setContentView(R.layout.fragment_datos_fisicos)
     }
 }
