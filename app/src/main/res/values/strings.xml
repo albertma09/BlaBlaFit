@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">blablafit</string>
-    <string name="btn_enviar">Enviar</string>
+    <string name="btn_enviar">Guardar</string>
     <string name="input_mail">Correo electronico o usuario</string>
     <string name="input_password">Contraseña</string>
     <string name="recordar_password">Recordar contraseña</string>
@@ -20,6 +20,4 @@
     <string name="altura">Altura (cm)</string>
     <string name="peso">Peso (Kg)</string>
     <string name="edad">Edad</string>
-    <string name="genero_masculino">M</string>
-    <string name="genero_femenino">M</string>
 </resources>
