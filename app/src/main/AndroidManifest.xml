@@ -20,7 +20,7 @@
             android:name=".Recupera_Contrasenya"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityInicio"
             android:exported="true"
             android:theme="@style/SplashScreen">
             <intent-filter>
