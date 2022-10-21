@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Recupera_Contrasenya"
-    android:background="@color/blablafit">
+    android:background="@color/blablafit"
+    tools:context=".Recupera_Contrasenya">
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="230dp"
         android:layout_height="48dp"
-        android:layout_marginTop="276dp"
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
         android:hint="@string/altura"
@@ -19,17 +18,17 @@
         android:minHeight="48dp"
         android:textColorHint="#757575"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="230dp"
         android:layout_height="48dp"
-        android:layout_marginTop="52dp"
 
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
@@ -38,16 +37,17 @@
         android:minHeight="48dp"
         android:textColorHint="#757575"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.626" />
 
     <EditText
         android:id="@+id/editTextTextPersonName1"
         android:layout_width="230dp"
         android:layout_height="48dp"
-        android:layout_marginTop="44dp"
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
         android:hint="@string/edad"
@@ -55,25 +55,25 @@
         android:minHeight="48dp"
         android:textColorHint="#2E7D32"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-         />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
         android:background="@drawable/borde_boton"
         android:text="@string/btn_enviar"
         app:backgroundTint="@color/butoncolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.909" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -86,48 +86,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/logo_mujer"
 
         android:layout_width="57dp"
         android:layout_height="108dp"
-        android:layout_marginEnd="104dp"
         android:src="@drawable/chica"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/logo_hombre"
-         />
-
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.199" />
 
     <ImageView
         android:id="@+id/logo_hombre"
         android:layout_width="57dp"
         android:layout_height="108dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="56dp"
         android:src="@drawable/chico"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-         />
-
-    <RadioButton
-        android:id="@+id/hombre"
-        android:layout_width="61dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="124dp"
-        android:textColor="#616161"
-        app:layout_constraintBottom_toBottomOf="@+id/mujer"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
-
-    <RadioButton
-        android:id="@+id/mujer"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="232dp"
-        android:textColor="#616161"
-        app:layout_constraintStart_toEndOf="@+id/hombre"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintVertical_bias="0.199" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
