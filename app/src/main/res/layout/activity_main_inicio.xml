@@ -62,6 +62,7 @@
         android:layout_height="16dp"
         android:layout_marginBottom="64dp"
         android:text="@string/no_tienes_cuenta_registrate"
+        android:textColor="#33691E"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -89,6 +90,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.966" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
