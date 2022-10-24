@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 class Registro : AppCompatActivity() {
@@ -13,12 +14,17 @@ class Registro : AppCompatActivity() {
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var btn_registrar : Button
+    private lateinit var lbl_iniciar_sesio : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
         btn_registrar= findViewById(R.id.registrar)
+        lbl_iniciar_sesio = findViewById(R.id.iniciar_sesion)
         btn_registrar.setOnClickListener { registro() }
+        lbl_iniciar_sesio.setOnClickListener{
+            login()
+        }
     }
 
     private fun registro() {
@@ -49,8 +55,17 @@ class Registro : AppCompatActivity() {
                         //showAlert()
                     }
                 }
+        }else{
+            Toast.makeText(this, "Faltan datos por introducir", Toast.LENGTH_SHORT).show()
+
         }
 
+
+    }
+
+    private fun login(){
+        val intent = Intent(this,MainActivityInicio::class.java)
+        startActivity(intent)
 
     }
 }
