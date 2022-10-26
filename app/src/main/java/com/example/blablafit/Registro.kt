@@ -15,6 +15,7 @@ class Registro : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var btn_registrar : Button
     private lateinit var lbl_iniciar_sesio : TextView
+    private lateinit var username : EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +32,13 @@ class Registro : AppCompatActivity() {
 
         email = findViewById(R.id.mail)
         password = findViewById(R.id.password)
+        username = findViewById(R.id.username)
+        password = findViewById(R.id.password)
+
         val mail = email.text.toString()
         val pass = password.text.toString()
+        val nombreUsuario = username.text.toString()
+
 
 
 

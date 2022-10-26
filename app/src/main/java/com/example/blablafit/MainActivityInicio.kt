@@ -15,6 +15,8 @@ class MainActivityInicio : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var lbl_registro: TextView
     private lateinit var btn_login: Button
+    private lateinit var btn_recupera_psw: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -25,7 +27,7 @@ class MainActivityInicio : AppCompatActivity() {
 
         setContentView(R.layout.activity_main_inicio)
         //Analytics Event
-
+        btn_recupera_psw = findViewById(R.id.recuperar_password)
         btn_login = findViewById(R.id.iniciar)
         lbl_registro = findViewById(R.id.registro)
         email = findViewById(R.id.usuario)
@@ -38,6 +40,10 @@ class MainActivityInicio : AppCompatActivity() {
             login()
         }
 
+        btn_recupera_psw.setOnClickListener {
+            recupera_psw()
+        }
+
 
     }
 
@@ -47,6 +53,11 @@ class MainActivityInicio : AppCompatActivity() {
         startActivity(intent)
     }
 
+
+    private fun recupera_psw() {
+        intent = Intent(this, Recupera_Contrasenya::class.java)
+        startActivity(intent)
+    }
 
     private fun login() {
         val mail = email.text.toString()
