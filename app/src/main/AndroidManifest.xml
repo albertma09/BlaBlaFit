@@ -14,13 +14,16 @@
         android:theme="@style/Theme.Blablafit"
         tools:targetApi="31">
         <activity
+            android:name=".Registro"
+            android:exported="false" />
+        <activity
             android:name=".Enviar_Contrasenya"
             android:exported="false" />
         <activity
             android:name=".Recupera_Contrasenya"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityInicio"
             android:exported="true"
             android:theme="@style/SplashScreen">
             <intent-filter>

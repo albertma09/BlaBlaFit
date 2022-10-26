@@ -163,7 +163,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="140dp"
             android:background="@drawable/forma_circular"
-            android:src="@drawable/imagenVaso"
+            android:src="@drawable/imagen_vaso"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
