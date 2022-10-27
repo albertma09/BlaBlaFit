@@ -156,6 +156,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ProgressBar
+            android:id="@+id/indeterminate_linear_indicator"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="239dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginBottom="172dp"
+            android:minHeight="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            tools:progress="50"
+            android:progressTint="#49C5FB"/>
+
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="115dp"
@@ -166,18 +179,6 @@
             android:src="@drawable/imagen_vaso"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/indeterminate_linear_indicator"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="271dp"
-            android:layout_height="118dp"
-            android:layout_marginStart="115dp"
-            android:layout_marginBottom="140dp"
-            android:minHeight="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            tools:progress="50" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
