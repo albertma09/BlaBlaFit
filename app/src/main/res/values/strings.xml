@@ -54,6 +54,7 @@
     <string name="_250ml">250ml</string>
     <string name="guardar">Guardar</string>
     <string name="a_adir_alimento_por_qr">Añadir alimento por QR</string>
+    <string name="dietas">Dietas</string>
 
 
 </resources>
