@@ -16,15 +16,16 @@
             android:id="@+id/button4"
             android:layout_width="376dp"
             android:layout_height="97dp"
-            android:layout_marginBottom="208dp"
             android:background="@drawable/boton_redondeado"
             android:text="@string/perder_grasa_corporal"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.457"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.602" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -38,18 +39,18 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="376dp"
-            android:layout_height="97dp"
+            android:layout_width="364dp"
+            android:layout_height="98dp"
             android:background="@drawable/boton_redondeado"
             android:text="@string/ganar_masa_muscular"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.485"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.744" />
+            app:layout_constraintVertical_bias="0.365" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

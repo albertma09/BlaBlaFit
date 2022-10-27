@@ -5,20 +5,22 @@
       <map>
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/drawable/borde_boton.xml" value="0.124" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/drawable/borde_edit_text.xml" value="0.124" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/drawable/esquina_redondeada.xml" value="0.129" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/drawable/forma_circular.xml" value="0.124" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/drawable/splash_screen.xml" value="0.1195" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/drawable/splashscreen.xml" value="0.123" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_enviar_contrasenya.xml" value="0.264" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_main.xml" value="0.11041666666666666" />
-        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_main_inicio.xml" value="0.264" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_main_inicio.xml" value="0.391304347826087" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_recupera_contrasenya.xml" value="0.12" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_registro.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_splashscreen.xml" value="0.4" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_splashscreen2.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_alimentacio.xml" value="0.2" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_aliments.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_dades__personals.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_dades_fisiques.xml" value="0.2" />
-        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_dades_personals.xml" value="0.109375" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_dades_personals.xml" value="0.264" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_datos_fisicos.xml" value="0.264" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_dies__setmanals.xml" value="0.2046875" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_dietas.xml" value="0.109375" />
@@ -28,12 +30,15 @@
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_lloc_entrenament.xml" value="0.2046875" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_menu_lateral.xml" value="0.2046875" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_objectiu.xml" value="0.2046875" />
-        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_objetivo.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_objetivo.xml" value="0.2" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_perfil__personal.xml" value="0.2046875" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_perfil_personal.xml" value="0.264" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_perfil_personal2.xml" value="0.2" />
-        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_principal.xml" value="0.1" />
-        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutinas.xml" value="0.1" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_principal.xml" value="0.2" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutinas.xml" value="0.16" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutinas2.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutinas3.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutinas4.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutines.xml" value="0.109375" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/xml/splashscreen.xml" value="0.1" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/drawable/splashscreen.xml" value="0.1505" />
