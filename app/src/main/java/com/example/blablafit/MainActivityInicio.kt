@@ -35,7 +35,7 @@ class MainActivityInicio : AppCompatActivity() {
         Thread.sleep(2000)
         setTheme(R.style.Theme_Blablafit)
         super.onCreate(savedInstanceState)
-        
+
         bin = ActivityMainInicioBinding.inflate(layoutInflater)
         setContentView(bin.root)
 
@@ -50,7 +50,7 @@ class MainActivityInicio : AppCompatActivity() {
 
 
         bin.recuperarPassword.setOnClickListener() {
-            intent = Intent(this, Recupera_Contrasenya::class.java)
+            intent = Intent(this, Enviar_Contrasenya::class.java)
             startActivity(intent)
         }
 
@@ -62,7 +62,6 @@ class MainActivityInicio : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
             reload();
@@ -74,7 +73,7 @@ class MainActivityInicio : AppCompatActivity() {
     }
 
 
-    private fun reload() { //quan canviem/entrem en un usuari amb l'aplicació
+    private fun reload() {
         val user = auth.currentUser
 
         user?.let {
@@ -95,7 +94,7 @@ class MainActivityInicio : AppCompatActivity() {
 
 
         if (mail.isNotEmpty() && pass.isNotEmpty()) {
-            if (UtilsFunctions.checkMail(mail, pass,snackbar)) {
+            if (UtilsFunctions.checkMail(mail, pass, snackbar)) {
                 auth.signInWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -111,8 +110,8 @@ class MainActivityInicio : AppCompatActivity() {
 
             }
 
-        }else{
-            Snackbar.make(bin.snackbar,"Faltan datos por completar",Snackbar.LENGTH_SHORT).show()
+        } else {
+            Snackbar.make(bin.snackbar, "Faltan datos por completar", Snackbar.LENGTH_SHORT).show()
         }
 
     }
