@@ -9,15 +9,18 @@
     >
 
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/usuario"
         android:layout_width="350dp"
         android:layout_height="62dp"
         android:background="@drawable/esquina_redondeada"
         android:hint="@string/usuario_o_correo"
-        android:textColorHint="#2E7D32"
+        android:textColorHint="@color/colorFormulario"
         android:gravity="center"
         android:text=""
+        android:inputType="text"
+        android:lines="1"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -32,15 +35,18 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/esquina_redondeada"
         android:gravity="center"
+        android:lines="1"
+        android:textSize="18sp"
         android:hint="@string/contrase_a"
         android:inputType="textPassword"
-        android:textColorHint="#2E7D32"
+        android:textColorHint="@color/colorFormulario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662" />
+        app:layout_constraintVertical_bias="0.662"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/iniciar"
@@ -48,7 +54,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/boton_redondeado"
         android:text="@string/iniciar"
-        app:backgroundTint="#116f26"
+        app:backgroundTint="@color/colorBotones"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -62,7 +68,7 @@
         android:layout_height="16dp"
         android:layout_marginBottom="64dp"
         android:text="@string/no_tienes_cuenta_registrate"
-        android:textColor="#33691E"
+        android:textColor="@color/colorTextosExternos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -77,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/has_olvidado_la_contrase_a_recuperar_contrase_a"
+        android:textColor="@color/colorTextosExternos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -85,10 +92,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:singleLine="true"
         android:id="@+id/logo_app"
-        android:layout_width="244dp"
-        android:layout_height="279dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHeight_max="280dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,7 +103,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.12"
+        android:contentDescription="TODO" />
 
     <TextView
         android:singleLine="true"
