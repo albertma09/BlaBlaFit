@@ -3,11 +3,16 @@ package com.example.blablafit
 import android.content.Intent
 import android.os.Bundle
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.example.blablafit.UtilsFunctions
+import com.example.blablafit.databinding.ActivityMainInicioBinding
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivityInicio : AppCompatActivity() {
 
@@ -15,6 +20,14 @@ class MainActivityInicio : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var lbl_registro: TextView
     private lateinit var btn_login: Button
+    private lateinit var btn_recupera_psw: TextView
+    private lateinit var auth: FirebaseAuth
+    private lateinit var bin: ActivityMainInicioBinding
+
+    companion object {
+        private const val TAG = "MainActivityInicio"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -23,66 +36,84 @@ class MainActivityInicio : AppCompatActivity() {
         setTheme(R.style.Theme_Blablafit)
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main_inicio)
-        //Analytics Event
+        bin = ActivityMainInicioBinding.inflate(layoutInflater)
+        setContentView(bin.root)
 
-        btn_login = findViewById(R.id.iniciar)
-        lbl_registro = findViewById(R.id.registro)
-        email = findViewById(R.id.usuario)
-        password = findViewById(R.id.password)
-        lbl_registro.setOnClickListener {
-            registro()
-        }
+        bin.logoApp.animate().rotation(360f).setDuration(5000).start()
+        // Initialize Firebase Auth
+        auth = Firebase.auth
 
-        btn_login.setOnClickListener {
+        bin.iniciar.setOnClickListener {
             login()
         }
 
 
-    }
 
-
-    private fun registro() {
-        intent = Intent(this, Registro::class.java)
-        startActivity(intent)
-    }
-
-
-    private fun login() {
-        val mail = email.text.toString()
-        val pass = password.text.toString()
-        if (mail.isNotEmpty() && pass.isNotEmpty()) {
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(mail, pass)
-                .addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
-                        showAlertConnect()
-
-                    } else {
-                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-                        showAlert()
-                    }
-                }
+        bin.recuperarPassword.setOnClickListener() {
+            intent = Intent(this, Enviar_Contrasenya::class.java)
+            startActivity(intent)
         }
 
+        bin.registro.setOnClickListener() {
+            intent = Intent(this, Registro::class.java)
+            startActivity(intent)
+        }
     }
 
-    private fun showAlertConnect() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Correct")
-        builder.setMessage("Se ha registrado")
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            reload();
+        }
     }
 
-    private fun showAlert() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error autenticando al usuario")
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
+    private fun updateUI(user: FirebaseUser?) {
+        reload()
+    }
+
+
+    private fun reload() {
+        val user = auth.currentUser
+
+        user?.let {
+            val nom = user.displayName ?: run { "sense nom" }
+            //bin.tvMAMissatges.setText("Usuari email: ${user.email}\n$nom")
+        } ?: run {
+            //bin.tvMAMissatges.setText("Usuari: no assignat")
+
+        }
+    }
+
+    private fun login() {
+
+        val mail = bin.usuario.text.toString()
+        val pass = bin.password.text.toString()
+        val snackbar = bin.snackbar
+
+
+
+        if (mail.isNotEmpty() && pass.isNotEmpty()) {
+            if (UtilsFunctions.checkMail(mail, pass, snackbar)) {
+                auth.signInWithEmailAndPassword(mail, pass)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
+                            UtilsFunctions.showAlertConnect(this)
+
+
+                        } else {
+                            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                            UtilsFunctions.showAlert(this)
+                        }
+                    }
+
+            }
+
+        } else {
+            Snackbar.make(bin.snackbar, "Faltan datos por completar", Snackbar.LENGTH_SHORT).show()
+        }
+
     }
 
 

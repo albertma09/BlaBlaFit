@@ -24,4 +24,8 @@
     <color name="Grasas">#29B6F6</color>
 
     <color name="toolbar">#52913B</color>
+    <color name="colorBotones">#33691E</color>
+    <color name="colorFormulario">#116f26</color>
+    <color name="colorTextosExternos">#2E7D32</color>
+    <color name="colorProgressBar">#49C5FB</color>
 </resources>

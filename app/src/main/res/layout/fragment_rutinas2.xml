@@ -22,10 +22,10 @@
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.457"
+            app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button5"
-            app:layout_constraintVertical_bias="0.341" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.817" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -41,43 +41,46 @@
             android:id="@+id/button3"
             android:layout_width="376dp"
             android:layout_height="97dp"
-            android:layout_marginTop="124dp"
             android:background="@drawable/boton_redondeado"
             android:text="@string/rutina_para_3_dias"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.457"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.192" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="376dp"
             android:layout_height="97dp"
-            android:layout_marginTop="40dp"
             android:background="@drawable/boton_redondeado"
             android:text="@string/rutina_para_4_dias"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.457"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="376dp"
             android:layout_height="97dp"
-            android:layout_marginTop="40dp"
             android:background="@drawable/boton_redondeado"
             android:text="@string/rutina_para_5_dias"
             android:textColor="@color/black"
             app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.457"
+            app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.611" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

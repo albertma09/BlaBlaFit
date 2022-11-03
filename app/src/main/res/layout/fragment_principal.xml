@@ -18,22 +18,25 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="267dp"
             android:layout_height="63dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="156dp"
             android:background="@drawable/borde_edit_text"
             android:gravity="center"
             android:text="Dietas"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.254" />
 
         <TextView
             android:id="@+id/textView4"
@@ -73,41 +76,50 @@
             android:id="@+id/imageView3"
             android:layout_width="88dp"
             android:layout_height="101dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="76dp"
             android:src="@drawable/muslito"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="88dp"
             android:layout_height="118dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginBottom="88dp"
             android:src="@drawable/mapa"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.755" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="105dp"
             android:layout_height="92dp"
             android:src="@drawable/receta_ensalada_de_frutas_optima"
-            app:layout_constraintBottom_toTopOf="@+id/imageView4"
-            app:layout_constraintEnd_toEndOf="@+id/imageView4"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.137"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.58" />
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="72dp"
             android:src="@drawable/dumbells"
-            app:layout_constraintBottom_toTopOf="@+id/imageView5"
-            app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.098"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.468" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
