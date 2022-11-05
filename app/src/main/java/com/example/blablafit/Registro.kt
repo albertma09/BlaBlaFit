@@ -67,10 +67,10 @@ class Registro : AppCompatActivity() {
                             //showAlert()
                         }
                     }
-            } else {
-                Toast.makeText(this, "Faltan datos por introducir", Toast.LENGTH_SHORT).show()
-
             }
+        } else {
+            Toast.makeText(this, "Faltan datos por introducir", Toast.LENGTH_SHORT).show()
+
         }
 
 
