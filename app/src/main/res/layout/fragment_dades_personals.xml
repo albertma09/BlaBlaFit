@@ -19,16 +19,19 @@
         android:background="@color/blablafit">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="388dp"
             android:layout_height="223dp"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="84dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/toolbar2"
+            app:layout_constraintVertical_bias="0.009">
 
             <!--Pie chart to display the data-->
 
@@ -147,43 +150,47 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
+            android:layout_width="412dp"
+            android:layout_height="55dp"
             android:background="@color/toolbar"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar
             android:id="@+id/indeterminate_linear_indicator"
             style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="239dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginBottom="172dp"
+            android:layout_width="237dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="84dp"
             android:minHeight="24dp"
+            android:progressTint="#49C5FB"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imageView3"
-            tools:progress="50"
-            android:progressTint="#49C5FB"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.708"
+            tools:progress="50" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="115dp"
             android:layout_height="119dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="140dp"
             android:background="@drawable/forma_circular"
             android:src="@drawable/imagen_vaso"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.679" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <!-- Another Card view for displaying -->
-    <!-- Use of programming languages -->
 
 </RelativeLayout>
 
