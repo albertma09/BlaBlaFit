@@ -18,7 +18,7 @@ class Registro : AppCompatActivity() {
     private lateinit var btn_registrar: Button
     private lateinit var lbl_iniciar_sesio: TextView
     private lateinit var username: EditText
-    private lateinit var bin: ActivityRegistroBinding
+    //private lateinit var bin: ActivityRegistroBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,10 +67,10 @@ class Registro : AppCompatActivity() {
                             //showAlert()
                         }
                     }
-            } else {
-                Toast.makeText(this, "Faltan datos por introducir", Toast.LENGTH_SHORT).show()
-
             }
+        } else {
+            Toast.makeText(this, "Faltan datos por introducir", Toast.LENGTH_SHORT).show()
+
         }
 
 
