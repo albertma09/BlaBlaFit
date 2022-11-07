@@ -37,7 +37,7 @@ class MainActivityInicio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         bin = ActivityMainInicioBinding.inflate(layoutInflater)
-        setContentView(bin.root)
+        setContentView(R.layout.activity_main_inicio)
 
         bin.logoApp.animate().rotation(360f).setDuration(5000).start()
         // Initialize Firebase Auth
@@ -62,6 +62,7 @@ class MainActivityInicio : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
         val currentUser = auth.currentUser
         if (currentUser != null) {
             reload();
