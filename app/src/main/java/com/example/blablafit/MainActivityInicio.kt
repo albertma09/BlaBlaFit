@@ -37,7 +37,7 @@ class MainActivityInicio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         bin = ActivityMainInicioBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main_inicio)
+        setContentView(bin.root)
 
         bin.logoApp.animate().rotation(360f).setDuration(5000).start()
         // Initialize Firebase Auth
@@ -50,7 +50,9 @@ class MainActivityInicio : AppCompatActivity() {
 
 
         bin.recuperarPassword.setOnClickListener() {
-            intent = Intent(this, Enviar_Contrasenya::class.java)
+            //intent = Intent(this, Enviar_Contrasenya::class.java)
+            //startActivity(intent)
+            intent = Intent(this, RecyclerViewRutinas::class.java)
             startActivity(intent)
         }
 
@@ -62,7 +64,6 @@ class MainActivityInicio : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
         val currentUser = auth.currentUser
         if (currentUser != null) {
             reload();
