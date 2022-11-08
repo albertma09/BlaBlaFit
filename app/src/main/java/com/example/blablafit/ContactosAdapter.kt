@@ -1,51 +1,80 @@
-import android.util.Log
+package com.example.blablafit
+
+import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.blablafit.ContactoModel
-import com.example.blablafit.R
+import com.example.blablafit.databinding.ActivityRecyclerViewBinding
+import com.example.blablafit.databinding.CardViewBinding
+import com.squareup.picasso.Picasso
 
-class ContactosAdapter (private val mContacts: MutableList<ContactoModel>) : RecyclerView.Adapter<ContactosAdapter.ViewHolder>()
-{
-    // Provide a direct reference to each of the views within a data item
-    // Used to cache the views within the item layout for fast access
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // Your holder should contain and initialize a member variable
-        // for any view that will be set as you render a row
-        val nameTextView = itemView.findViewById<TextView>(R.id.contact_name)
-        val messageButton = itemView.findViewById<Button>(R.id.message_button)
 
+class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
+    var contactos: MutableList<ContactoModel> = ArrayList()
+    lateinit var context: Context
+
+    //constructor de la classe on es passa la font de dades i el context sobre el que es mostrarà
+    fun ContactosAdapter(contactos: MutableList<ContactoModel>, contxt: Context,) {
+        this.contactos = contactos
+        this.context = contxt
     }
 
-    // ... constructor and member variables
-    // Usually involves inflating a layout from XML and returning the holder
+    //és l'encarregat de retornar el ViewHolder ja configurat
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        Log.d("Contact","on create view holder")
-        val context = parent.context
-        val inflater = LayoutInflater.from(context)
-        // Inflate the custom layout
-        val contactView = inflater.inflate(R.layout.card_view, parent, false)
-        // Return a new holder instance
-        return ViewHolder(contactView)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return ViewHolder(
+            CardViewBinding.inflate(
+                layoutInflater, parent, false
+            )
+        )
     }
 
-    // Involves populating data into the item through holder
-    override fun onBindViewHolder(viewHolder: ContactosAdapter.ViewHolder, position: Int) {
-        // Get the data model based on position
-        val contact: ContactoModel = mContacts[position]
-        // Set item views based on your views and data model
-        val textView = viewHolder.nameTextView
-        textView.setText(contact.name)
-        val button = viewHolder.messageButton
-        Log.i("Contact","contacto: ${contact.name}")
+    //Aquest mètode s'encarrega de passar els objectes, un a un al ViewHolder personalitzat
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        with(holder) {
+            with(contactos.get(position)) {
+
+                binding.contactName.text= this.name
+                binding.description1.text = this.description
+                Picasso.get().load(this.contactImage).into(binding.imageView7)
+
+                //binding.= this.latinName
+                //binding.imgAnimal.load(this.imageAnimal)
+                /*
+                 //Monstrar la imatge des de Storage de Firebase
+                 val storageRef = FirebaseStorage.getInstance().reference
+                 val imageRef = storageRef.child("rv/${this.animalName}")
+                 imageRef.downloadUrl.addOnSuccessListener { url ->
+                     binding.imgAnimal.load(url)
+                 }.addOnFailureListener {
+                     //mostrar error
+                 } */
+            }
+        }
+        val item = contactos.get(position)
+        holder.bind(item)
+
+        //estamblim un listener
+        holder.itemView.setOnClickListener {
+            Toast.makeText(context, contactos.get(position).contactName, Toast.LENGTH_LONG).show()
+        }
     }
 
-    // Returns the total count of items in the list
+
     override fun getItemCount(): Int {
-        Log.i("Contact","contacto: ${mContacts.size}")
-        return mContacts.size
+        return contactos.size
     }
+
+
+    class ViewHolder(val binding: CardViewBinding ): RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(contacto: ContactoModel) {
+
+        }
+
+    }
+
+
 }

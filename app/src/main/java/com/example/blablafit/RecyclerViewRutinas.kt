@@ -1,58 +1,60 @@
 package com.example.blablafit
 
-import ContactosAdapter
-import android.R
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.blablafit.databinding.ActivityRecyclerViewBinding
 
 class RecyclerViewRutinas : AppCompatActivity() {
 
-    private lateinit var binding:ActivityRecyclerViewBinding
-    private  var listapersonajes:MutableList<ContactoModel> = mutableListOf()
-    //private lateinit var recycler:RecyclerView
+    private lateinit var binding: ActivityRecyclerViewBinding
+
+    private val myAdapter: ContactosAdapter = ContactosAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Log.d("carga datos: ","linea 23")
-        listapersonajes.add(ContactoModel(("Naruto Uzumaki")))
-        listapersonajes.add(ContactoModel(("Sasuke Uchiha")))
-        listapersonajes.add(ContactoModel(("Personaje")))
-        listapersonajes.add(ContactoModel(("Sakura Haruno")))
-        listapersonajes.add(ContactoModel(("Sai")))
-        listapersonajes.add(ContactoModel(("Hinata Hyūga")))
-        listapersonajes.add(ContactoModel(("Kiba Inuzuka")))
-        listapersonajes.add(ContactoModel(("Chōji Akimichi")))
-        listapersonajes.add(ContactoModel(("Rock Lee")))
-        Log.d("datos cargados: ","linea 33")
-        Log.d("Recycler view lista","personajes: ${listapersonajes.count()}")
-        // ...
-        // Lookup the recyclerview in activity layout
-
-        val rvContacts = binding.recycler
-        // Initialize contacts
-        val contacts = ContactoModel.createContactsList(20)
-        // Create adapter passing in the sample user data
-        Log.d("Recycler view rutinas","linea 41")
-        val adapter = ContactosAdapter(listapersonajes)
-        // Attach the adapter to the recyclerview to populate items
-        Log.d("Recycler view rutinas","linea 43")
-        rvContacts.adapter = adapter
-        // Set layout manager to position the items
-        rvContacts.layoutManager = LinearLayoutManager(this)
-        // That's all!
-
-        adapter.notifyItemInserted(0)
-
-
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Your Code
+            binding.shimmerLayout.stopShimmer()
+            binding.recycler.visibility = View.VISIBLE
+            binding.shimmerLayout.visibility = View.GONE
+        }, 5000)
+        setupRecyclerView()
     }
 
+    private fun setupRecyclerView(){
+        //Especifiquem que els fills del RV seran del mateix tamany i així optimitzem la seva creació
+        binding.recycler.setHasFixedSize(true)
+
+        //indiquem que el RV es mostrarà en format llista
+        binding.recycler.layoutManager = LinearLayoutManager(this)
+
+        //generem el adapter
+        myAdapter.ContactosAdapter(getAnimals(),this)
+
+        //assignem el adapter al RV
+        binding.recycler.adapter = myAdapter
+    }
+
+    private fun getAnimals():MutableList<ContactoModel>{
+        val animals: MutableList<ContactoModel> = arrayListOf()
+        animals.add(ContactoModel("Eriçó", "Erinaceinae","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6jimbnhKGIjk--l0ovAaI4qVdLXFo3CJDhA&usqp=CAU"))
+        animals.add(ContactoModel("Gat", "Felis catus","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdG0gms0eSr1cF0XnKqOObx_mAKOMP0Hez3g&usqp=CAU"))
+        animals.add(ContactoModel("Cisne", "Cygnus olor","https://www.faunia.es/content/dam/fau/images/descubre-faunia/planea-tu-visita/animales/aves/cisne-negro/Cisne-negro-Animales-Faunia-main.jpg"))
+        animals.add(ContactoModel("Gos", "Canis lupus familiaris","https://static3.lasprovincias.es/www/multimedia/202110/29/media/cortadas/perro-kSgG-U1509933224883BG-624x385@Las%20Provincias.jpg"))
+        animals.add(ContactoModel("Tigre", "Phantera tigris","https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Tigress_at_Jim_Corbett_National_Park.jpg/250px-Tigress_at_Jim_Corbett_National_Park.jpg"))
+        animals.add(ContactoModel("ovella", "Ovis aries","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flock_of_sheep.jpg/245px-Flock_of_sheep.jpg"))
+        animals.add(ContactoModel("pardal", "Passer domesticus","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/HouseSparrow23.jpg/245px-HouseSparrow23.jpg"))
+
+        return animals
+
+    }
 
 
 

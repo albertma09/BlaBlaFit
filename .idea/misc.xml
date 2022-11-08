@@ -17,7 +17,7 @@
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_registro.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_splashscreen.xml" value="0.4" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_splashscreen2.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/card_view.xml" value="0.4" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/card_view.xml" value="0.264" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_alimentacio.xml" value="0.2" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_aliments.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_dades__personals.xml" value="0.11041666666666666" />
@@ -42,6 +42,7 @@
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutinas3.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutinas4.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/fragment_rutines.xml" value="0.109375" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/layout/shimmer.xml" value="0.1" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/blablafit/app/src/main/res/xml/splashscreen.xml" value="0.1" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/drawable/splashscreen.xml" value="0.1505" />
         <entry key="..\:/Users/carlo/AndroidStudioProjects/blablafit/app/src/main/res/layout/activity_main_inicio.xml" value="0.23102310231023102" />

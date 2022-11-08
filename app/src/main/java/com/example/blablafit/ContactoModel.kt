@@ -1,15 +1,13 @@
 package com.example.blablafit
 
-class ContactoModel(val name: String) {
+data class ContactoModel(val name:String, val description:String, private val image:String){
+    var contactName: String? = null
+    var contactDescription: String?=null
+    var contactImage: String? = null
 
-    companion object {
-        private var lastContactId = 0
-        fun createContactsList(numContacts: Int) : ArrayList<ContactoModel> {
-            val contacts = ArrayList<ContactoModel>()
-            for (i in 1..numContacts) {
-                contacts.add(ContactoModel("Person " + ++lastContactId))
-            }
-            return contacts
-        }
+    init {
+        this.contactName = name
+        this.contactDescription= description
+        this.contactImage= image
     }
 }
