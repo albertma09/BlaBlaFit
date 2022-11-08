@@ -19,7 +19,7 @@ object UtilsFunctions {
                 "`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)" +
                 "+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\$").toRegex()
 
-        //Test
+
         if (pattern_mail.matches(mail)) {
             if (pattern_password.matches(password)) {
                 Log.i("Password", "Correcto")
