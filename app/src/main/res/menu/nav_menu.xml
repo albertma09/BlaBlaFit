@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"         xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <item
         android:id="@+id/firstItem"
         android:title="First Item" />
@@ -8,5 +9,8 @@
         android:title="Second Item" />
     <item
         android:id="@+id/thirdItem"
-        android:title="Third Item" />
+        android:title=""
+        app:actionLayout="@layout/progress_bar_menu"
+        />
+
 </menu>
