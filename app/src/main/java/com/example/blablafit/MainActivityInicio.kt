@@ -50,7 +50,9 @@ class MainActivityInicio : AppCompatActivity() {
 
 
         bin.recuperarPassword.setOnClickListener() {
-            intent = Intent(this, Enviar_Contrasenya::class.java)
+            //intent = Intent(this, Enviar_Contrasenya::class.java)
+            //startActivity(intent)
+            intent = Intent(this, RecyclerViewRutinas::class.java)
             startActivity(intent)
         }
 
@@ -84,6 +86,7 @@ class MainActivityInicio : AppCompatActivity() {
 
         }
     }
+
 
     private fun login() {
 
