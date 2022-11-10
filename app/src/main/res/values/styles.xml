@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TextAppearance">
-        <item name="android:lines">2</item>
+
+    <style name="custom_edit_text">
+        <item name="android:background">@drawable/custom_input</item>
+        <item name="android:textColorHint">@color/colorFormulario</item>
     </style>
 </resources>

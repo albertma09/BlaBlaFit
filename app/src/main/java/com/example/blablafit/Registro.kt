@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.example.blablafit.databinding.ActivityRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -19,7 +20,7 @@ class Registro : AppCompatActivity() {
     private lateinit var lbl_iniciar_sesio: TextView
     private lateinit var username: EditText
     private lateinit var bin: ActivityRegistroBinding
-
+    private lateinit var recycler : RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
@@ -30,6 +31,7 @@ class Registro : AppCompatActivity() {
         lbl_iniciar_sesio.setOnClickListener {
             login()
         }
+
     }
 
     private fun registro() {
@@ -56,6 +58,7 @@ class Registro : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
+                            btn_registrar.setEnabled(false)
                             Toast.makeText(this, "Nuevo usuario registrado", Toast.LENGTH_SHORT)
                                 .show()
                             val intent = Intent(this, MainActivityInicio::class.java)
