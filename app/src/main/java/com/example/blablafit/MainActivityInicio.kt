@@ -87,6 +87,7 @@ class MainActivityInicio : AppCompatActivity() {
         }
     }
 
+
     private fun login() {
 
         val mail = bin.usuario.text.toString()
