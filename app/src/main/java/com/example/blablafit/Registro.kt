@@ -24,6 +24,7 @@ class Registro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
+        supportActionBar!!.hide()
         btn_registrar = findViewById(R.id.registrar)
         lbl_iniciar_sesio = findViewById(R.id.iniciar_sesion)
         btn_registrar.setOnClickListener { registro() }

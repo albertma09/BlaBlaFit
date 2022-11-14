@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="false"
     android:background="@color/blablafit"
-    tools:context=".MainActivityInicio">
+    tools:context=".InsercionAlimentos">
 
 
     <androidx.appcompat.widget.Toolbar

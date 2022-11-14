@@ -55,6 +55,7 @@
     <string name="guardar">Guardar</string>
     <string name="a_adir_alimento_por_qr">Añadir alimento por QR</string>
     <string name="dietas">Dietas</string>
-
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>
