@@ -10,11 +10,11 @@
         android:label="fragment_principal"
         tools:layout="@layout/fragment_principal" >
         <action
-            android:id="@+id/action_principal_to_alimentacio"
-            app:destination="@id/insercionAlimentos" />
-        <action
             android:id="@+id/action_principal_to_rutinas"
             app:destination="@id/rutinas" />
+        <action
+            android:id="@+id/action_principal_to_insercionAlimentos"
+            app:destination="@id/insercionAlimentos" />
         <action
             android:id="@+id/action_principal_to_dietas"
             app:destination="@id/dietas" />
@@ -85,9 +85,6 @@
         <action
             android:id="@+id/action_menuLateral_to_objetivo"
             app:destination="@id/objetivo" />
-        <action
-            android:id="@+id/action_menuLateral_to_perfilPersonal"
-            app:destination="@id/perfilPersonal3" />
         <action
             android:id="@+id/action_menuLateral_to_perfilPersonal2"
             app:destination="@id/perfilPersonal2" />
