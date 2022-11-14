@@ -20,6 +20,9 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".MainApp"
+            android:exported="false" />
+        <activity
             android:name=".Registro"
             android:exported="false" />
         <activity
