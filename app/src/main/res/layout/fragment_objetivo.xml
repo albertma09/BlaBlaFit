@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="false"
     android:background="#E1E1E1"
-    tools:context=".MainActivityInicio">
+    tools:context=".Objetivo">
 
 
     <com.google.android.material.textfield.TextInputEditText
