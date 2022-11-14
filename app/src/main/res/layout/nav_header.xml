@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/teal_700">
+    android:background="@color/blablafit">
 
     <TextView
+        android:id="@+id/nombreMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sample Title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:text="@string/nombre"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/white"
-        android:layout_marginStart="50dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/correoMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/correo"
+        android:textColor="#33691E"
+        app:layout_constraintStart_toStartOf="@+id/nombreMenu"
+        app:layout_constraintTop_toBottomOf="@+id/nombreMenu" />
+
+    <TextView
+        android:id="@+id/inicioMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/inicio"
+        android:textColor="#0277BD"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/correoMenu"
+        app:layout_constraintTop_toBottomOf="@+id/correoMenu" />
+
+    <TextView
+        android:id="@+id/CerrarMenu"
+        android:layout_width="57dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/cerrar_sesion"
+        android:textColor="#00838F"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/inicioMenu"
+        app:layout_constraintTop_toBottomOf="@+id/inicioMenu"
+        app:layout_constraintVertical_bias="0.483" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="92dp"
+        android:layout_height="91dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toEndOf="@+id/nombreMenu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.271"
+        app:srcCompat="@drawable/profile" />
 </androidx.constraintlayout.widget.ConstraintLayout>
