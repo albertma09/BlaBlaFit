@@ -10,20 +10,14 @@
         android:label="fragment_principal"
         tools:layout="@layout/fragment_principal" >
         <action
-            android:id="@+id/action_principal_to_alimentacio"
-            app:destination="@id/alimentacio" />
-        <action
             android:id="@+id/action_principal_to_rutinas"
             app:destination="@id/rutinas" />
-        <action
-            android:id="@+id/action_principal_to_dietas"
-            app:destination="@id/dietas" />
         <action
             android:id="@+id/action_principal_to_insercionAlimentos"
             app:destination="@id/insercionAlimentos" />
         <action
-            android:id="@+id/action_principal_to_mainApp2"
-            app:destination="@id/mainApp2" />
+            android:id="@+id/action_principal_to_dietas"
+            app:destination="@id/dietas" />
     </fragment>
     <fragment
         android:id="@+id/rutinas"
@@ -71,20 +65,12 @@
         android:id="@+id/dadesPersonals"
         android:name="com.example.blablafit.DadesPersonals"
         android:label="fragment_dades_personals"
-        tools:layout="@layout/fragment_dades_personals" >
-        <action
-            android:id="@+id/action_dadesPersonals_to_mainApp2"
-            app:destination="@id/mainApp2" />
-    </fragment>
+        tools:layout="@layout/fragment_dades_personals" />
     <fragment
         android:id="@+id/datos_fiicos"
         android:name="com.example.blablafit.Datos_fiicos"
         android:label="fragment_datos_fisicos"
-        tools:layout="@layout/fragment_datos_fisicos" >
-        <action
-            android:id="@+id/action_datos_fiicos_to_mainApp2"
-            app:destination="@id/mainApp2" />
-    </fragment>
+        tools:layout="@layout/fragment_datos_fisicos" />
     <fragment
         android:id="@+id/menuLateral"
         android:name="com.example.blablafit.MenuLateral"
@@ -99,9 +85,6 @@
         <action
             android:id="@+id/action_menuLateral_to_objetivo"
             app:destination="@id/objetivo" />
-        <action
-            android:id="@+id/action_menuLateral_to_perfilPersonal"
-            app:destination="@id/perfilPersonal" />
         <action
             android:id="@+id/action_menuLateral_to_perfilPersonal2"
             app:destination="@id/perfilPersonal2" />
