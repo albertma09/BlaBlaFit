@@ -24,13 +24,13 @@ class MainApp : AppCompatActivity() {
 
             navView.setNavigationItemSelectedListener {
                 when(it.itemId){
-                    R.id.firstItem -> {
+                    R.id.controlSemanal -> {
                         Toast.makeText(this@MainApp, "First Item Clicked", Toast.LENGTH_SHORT).show()
                     }
-                    R.id.secondtItem -> {
+                    R.id.objetivoCalorias -> {
                         Toast.makeText(this@MainApp, "Second Item Clicked", Toast.LENGTH_SHORT).show()
                     }
-                    R.id.thirdItem -> {
+                    R.id.Objetivos -> {
                         Toast.makeText(this@MainApp, "third Item Clicked", Toast.LENGTH_SHORT).show()
                     }
                 }

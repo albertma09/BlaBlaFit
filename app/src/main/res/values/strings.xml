@@ -57,5 +57,9 @@
     <string name="dietas">Dietas</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="_0">0</string>
+    <string name="control_semanal">Control semanal</string>
+    <string name="_0kg">0kg</string>
+    <string name="objetivo_menu">Objetivo</string>
 
 </resources>
