@@ -38,7 +38,7 @@ class MainActivityInicio : AppCompatActivity() {
 
         bin = ActivityMainInicioBinding.inflate(layoutInflater)
         setContentView(bin.root)
-
+        supportActionBar!!.hide()
         bin.logoApp.animate().rotation(360f).setDuration(5000).start()
         // Initialize Firebase Auth
         auth = Firebase.auth
@@ -87,6 +87,7 @@ class MainActivityInicio : AppCompatActivity() {
         }
     }
 
+
     private fun login() {
 
         val mail = bin.usuario.text.toString()
@@ -100,8 +101,10 @@ class MainActivityInicio : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
+                            intent = Intent(this, MainApp::class.java)
+                            startActivity(intent)
                             UtilsFunctions.showAlertConnect(this)
+
 
 
                         } else {

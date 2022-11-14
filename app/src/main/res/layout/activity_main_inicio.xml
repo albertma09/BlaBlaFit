@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityInicio"
     android:background="@color/blablafit"
+
     >
 
 
@@ -14,39 +15,39 @@
         android:layout_width="350dp"
         android:layout_height="62dp"
         android:background="@drawable/custom_input"
-        android:hint="@string/usuario_o_correo"
-        android:textColorHint="@color/colorFormulario"
         android:gravity="center"
-        android:text=""
+        android:hint="@string/usuario_o_correo"
         android:inputType="text"
         android:lines="1"
+        android:text=""
+        android:textColorHint="@color/colorFormulario"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintVertical_bias="0.941" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="350dp"
         android:layout_height="62dp"
         android:layout_marginTop="24dp"
+        android:autofillHints=""
         android:background="@drawable/custom_input"
         android:gravity="center"
-        android:lines="1"
-        android:textSize="18sp"
         android:hint="@string/contrase_a"
         android:inputType="textPassword"
+        android:lines="1"
         android:textColorHint="@color/colorFormulario"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.941" />
 
     <Button
         android:id="@+id/iniciar"
@@ -93,18 +94,16 @@
 
     <ImageView
         android:id="@+id/logo_app"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintHeight_max="280dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="285dp"
+        android:layout_height="312dp"
+        android:contentDescription="TODO"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/usuario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHeight_max="280dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12"
-        android:contentDescription="TODO" />
+        app:layout_constraintVertical_bias="0.658" />
 
     <TextView
         android:singleLine="true"

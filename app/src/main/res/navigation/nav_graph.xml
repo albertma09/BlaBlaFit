@@ -8,5 +8,109 @@
         android:id="@+id/principal"
         android:name="com.example.blablafit.Principal"
         android:label="fragment_principal"
-        tools:layout="@layout/fragment_principal" />
+        tools:layout="@layout/fragment_principal" >
+        <action
+            android:id="@+id/action_principal_to_alimentacio"
+            app:destination="@id/insercionAlimentos" />
+        <action
+            android:id="@+id/action_principal_to_rutinas"
+            app:destination="@id/rutinas" />
+        <action
+            android:id="@+id/action_principal_to_dietas"
+            app:destination="@id/dietas" />
+    </fragment>
+    <fragment
+        android:id="@+id/rutinas"
+        android:name="com.example.blablafit.Rutinas"
+        android:label="fragment_rutinas"
+        tools:layout="@layout/fragment_rutinas" >
+        <action
+            android:id="@+id/action_rutinas_to_rutinas2"
+            app:destination="@id/rutinas2" />
+    </fragment>
+    <fragment
+        android:id="@+id/rutinas2"
+        android:name="com.example.blablafit.Rutinas2"
+        android:label="fragment_rutinas2"
+        tools:layout="@layout/fragment_rutinas2" >
+        <action
+            android:id="@+id/action_rutinas2_to_rutinas3"
+            app:destination="@id/rutinas3" />
+    </fragment>
+    <fragment
+        android:id="@+id/rutinas3"
+        android:name="com.example.blablafit.Rutinas3"
+        android:label="fragment_rutinas3"
+        tools:layout="@layout/fragment_rutinas3" >
+        <action
+            android:id="@+id/action_rutinas3_to_rutinas4"
+            app:destination="@id/rutinas4" />
+    </fragment>
+    <fragment
+        android:id="@+id/rutinas4"
+        android:name="com.example.blablafit.rutinas4"
+        android:label="fragment_rutinas4"
+        tools:layout="@layout/fragment_rutinas4" />
+    <fragment
+        android:id="@+id/dietas"
+        android:name="com.example.blablafit.Dietas"
+        android:label="fragment_dietas"
+        tools:layout="@layout/fragment_dietas" />
+    <fragment
+        android:id="@+id/insercionAlimentos"
+        android:name="com.example.blablafit.InsercionAlimentos"
+        android:label="fragment_insercion_alimentos"
+        tools:layout="@layout/fragment_insercion_alimentos" />
+    <fragment
+        android:id="@+id/dadesPersonals"
+        android:name="com.example.blablafit.DadesPersonals"
+        android:label="fragment_dades_personals"
+        tools:layout="@layout/fragment_dades_personals" />
+    <fragment
+        android:id="@+id/datos_fiicos"
+        android:name="com.example.blablafit.Datos_fiicos"
+        android:label="fragment_datos_fisicos"
+        tools:layout="@layout/fragment_datos_fisicos" />
+    <fragment
+        android:id="@+id/menuLateral"
+        android:name="com.example.blablafit.MenuLateral"
+        android:label="fragment_menu_lateral"
+        tools:layout="@layout/fragment_menu_lateral" >
+        <action
+            android:id="@+id/action_menuLateral_to_dadesPersonals"
+            app:destination="@id/dadesPersonals" />
+        <action
+            android:id="@+id/action_menuLateral_to_datos_fiicos"
+            app:destination="@id/datos_fiicos" />
+        <action
+            android:id="@+id/action_menuLateral_to_objetivo"
+            app:destination="@id/objetivo" />
+        <action
+            android:id="@+id/action_menuLateral_to_perfilPersonal"
+            app:destination="@id/perfilPersonal3" />
+        <action
+            android:id="@+id/action_menuLateral_to_perfilPersonal2"
+            app:destination="@id/perfilPersonal2" />
+    </fragment>
+    <fragment
+        android:id="@+id/objetivo"
+        android:name="com.example.blablafit.Objetivo"
+        android:label="fragment_objetivo"
+        tools:layout="@layout/fragment_objetivo" />
+    <fragment
+        android:id="@+id/perfilPersonal2"
+        android:name="com.example.blablafit.PerfilPersonal2"
+        android:label="fragment_perfil_personal2"
+        tools:layout="@layout/fragment_perfil_personal2" >
+        <action
+            android:id="@+id/action_perfilPersonal2_to_perfilPersonal3"
+            app:destination="@id/perfilPersonal3" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilPersonal3"
+        android:name="com.example.blablafit.PerfilPersonal"
+        android:label="fragment_perfil_personal"
+        tools:layout="@layout/fragment_perfil_personal" />
+
+
 </navigation>

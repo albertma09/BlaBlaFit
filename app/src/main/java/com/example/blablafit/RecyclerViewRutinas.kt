@@ -19,6 +19,9 @@ class RecyclerViewRutinas : AppCompatActivity() {
 
         binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.recycler.visibility = View.GONE
+        binding.shimmerLayout.visibility = View.VISIBLE
+        binding.shimmerLayout.startShimmer()
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
             binding.shimmerLayout.stopShimmer()
