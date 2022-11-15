@@ -11,22 +11,6 @@
         android:layout_height="match_parent"
         android:background="@color/blablafit">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
         <TextView
             android:id="@+id/textView13"
             android:layout_width="413dp"
@@ -59,8 +43,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/toolbar4"
-            app:layout_constraintVertical_bias="0.445" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.442" />
 
         <TextView
             android:id="@+id/textView15"
@@ -87,7 +71,7 @@
             app:layout_constraintHorizontal_bias="0.363"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.534" />
+            app:layout_constraintVertical_bias="0.573" />
 
         <TextView
             android:id="@+id/textView21"
@@ -101,7 +85,7 @@
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.534" />
+            app:layout_constraintVertical_bias="0.573" />
 
         <TextView
             android:id="@+id/objetivos_usuario"
@@ -115,7 +99,7 @@
             app:layout_constraintHorizontal_bias="0.638"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.534" />
+            app:layout_constraintVertical_bias="0.573" />
 
         <ProgressBar
             android:id="@+id/progressBar"
