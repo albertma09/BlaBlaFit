@@ -107,6 +107,7 @@ class MainApp : AppCompatActivity() {
             }
             R.id.dias_3, R.id.dias_4, R.id.dias_5, R.id.dias_6 -> fragment = Rutinas3()
             R.id.casa, R.id.gym -> fragment = rutinas4()
+            R.id.camara -> enviarMensaje()
         }
 
         val transaction = fragmentManager.beginTransaction()
@@ -124,6 +125,19 @@ class MainApp : AppCompatActivity() {
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.setPackage("com.google.android.apps.maps")
         startActivity(mapIntent)
+    }
+
+    private fun enviarMensaje(){
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "Prueba de intent implicita")
+            type = "text/plain"
+        }
+
+
+        if (sendIntent.resolveActivity(packageManager) != null) {
+            startActivity(sendIntent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
