@@ -22,7 +22,6 @@
             android:id="@+id/linearLayout"
             android:layout_width="388dp"
             android:layout_height="223dp"
-            android:layout_marginTop="84dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="2"
@@ -30,8 +29,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/toolbar2"
-            app:layout_constraintVertical_bias="0.009">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.153">
 
             <!--Pie chart to display the data-->
 
@@ -147,20 +146,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
-            android:layout_width="412dp"
-            android:layout_height="55dp"
-            android:background="@color/toolbar"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar
             android:id="@+id/indeterminate_linear_indicator"

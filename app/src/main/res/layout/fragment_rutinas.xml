@@ -13,9 +13,10 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/perder_grasa"
             android:layout_width="376dp"
             android:layout_height="97dp"
+            android:onClick="clicked"
             android:background="@drawable/boton_redondeado"
             android:text="@string/perder_grasa_corporal"
             android:textColor="@color/black"
@@ -26,20 +27,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.602" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/toolbar"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="0dp" />
-
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/ganar_masa"
+            android:onClick="clicked"
             android:layout_width="364dp"
             android:layout_height="98dp"
             android:background="@drawable/boton_redondeado"

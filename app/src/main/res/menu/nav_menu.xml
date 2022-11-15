@@ -2,15 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"         xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <item
-        android:id="@+id/firstItem"
-        android:title="First Item" />
+        android:id="@+id/controlSemanal"
+        android:title="@string/control_semanal" />
     <item
-        android:id="@+id/secondtItem"
-        android:title="Second Item" />
-    <item
-        android:id="@+id/thirdItem"
-        android:title=""
+        android:id="@+id/objetivoCalorias"
+        android:icon="@null"
+        android:title="@null"
         app:actionLayout="@layout/progress_bar_menu"
+        />
+    <item
+        android:id="@+id/Objetivos"
+        android:icon="@null"
+        android:title="@null"
+        app:actionLayout="@layout/progress_bar2_menu"
         />
 
 </menu>

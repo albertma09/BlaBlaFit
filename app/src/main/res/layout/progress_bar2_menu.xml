@@ -7,22 +7,22 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/Calorias"
+        android:id="@+id/Objetivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/calorias"
+        android:text="@string/objetivo_menu"
         android:textColor="#000000" />
 
     <ProgressBar
-        android:id="@+id/progressBar_objetivoCalorias"
+        android:id="@+id/progressBar_objetivo"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="195dp"
         android:layout_height="20dp" />
 
     <TextView
-        android:id="@+id/progreso_objetivoCalorias"
+        android:id="@+id/progreso_objetivo"
         android:layout_width="match_parent"
-        android:layout_height="89dp"
-        android:text="@string/_0"
+        android:layout_height="86dp"
+        android:text="@string/_0kg"
         android:textColor="#000000" />
 </LinearLayout>
