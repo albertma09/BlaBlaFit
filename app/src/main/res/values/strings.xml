@@ -61,5 +61,8 @@
     <string name="control_semanal">Control semanal</string>
     <string name="_0kg">0kg</string>
     <string name="objetivo_menu">Objetivo</string>
+    <string name="cerrar_sesion">cerrar Sesion</string>
+    <string name="inicio">inicio</string>
+    <string name="nombre">Nombre</string>
 
 </resources>
