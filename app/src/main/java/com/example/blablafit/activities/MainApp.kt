@@ -1,5 +1,6 @@
-package com.example.blablafit
+package com.example.blablafit.activities
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -9,24 +10,25 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.blablafit.*
+import com.example.blablafit.fragmentsApp.*
 import com.example.blablafit.databinding.ActivityMainAppBinding
 
 class MainApp : AppCompatActivity() {
     lateinit var binding: ActivityMainAppBinding
     lateinit var toggle: ActionBarDrawerToggle
 
-    val fragmentManager = supportFragmentManager
+    private val fragmentManager = supportFragmentManager
 
     lateinit var fragment: Fragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //val navHostFragment =
-        //  supportFragmentManager.findFragmentById(R.id.nav_graph)
-        //val navController = navHostFragment.navController
+
         binding.apply {
             toggle =
                 ActionBarDrawerToggle(this@MainApp, drawerLayout, R.string.open, R.string.close)
@@ -80,7 +82,6 @@ class MainApp : AppCompatActivity() {
                     }
                 }
                 transaction = fragmentManager.beginTransaction()
-                //var action = PrincipalDirections.actionPrincipalToDietas()
                 transaction.replace(R.id.fragmentContainerView, fragment)
                 transaction.addToBackStack(null)
                 transaction.commit()
@@ -120,6 +121,24 @@ class MainApp : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Cerrar sesion")
+        builder.setMessage("Quieres salir?")
+        builder.setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, id ->
+            run {
+                val intent = Intent(this, MainActivityInicio::class.java)
+                startActivity(intent)
+            }
+        })
+
+        builder.setNegativeButton("Cancelar", null)
+        val dial: AlertDialog = builder.create()
+        dial.show()
+    }
+
+
     private fun abrirMapa(latitud: Double, longitud: Double, filtro: String = "nutricionista") {
         val gmmIntentUri = Uri.parse("geo:${latitud}, ${longitud}?q=${filtro}")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
@@ -127,7 +146,7 @@ class MainApp : AppCompatActivity() {
         startActivity(mapIntent)
     }
 
-    private fun enviarMensaje(){
+    private fun enviarMensaje() {
         val sendIntent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(Intent.EXTRA_TEXT, "Prueba de intent implicita")
