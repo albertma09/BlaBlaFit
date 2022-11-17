@@ -20,7 +20,9 @@ class Registro : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro)
+        bin = ActivityRegistroBinding.inflate(layoutInflater)
+        setContentView(bin.root)
+
         supportActionBar!!.hide()
         bin.registrar.setOnClickListener { registro() }
         bin.iniciarSesion.setOnClickListener {
