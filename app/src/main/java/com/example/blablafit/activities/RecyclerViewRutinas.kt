@@ -1,4 +1,4 @@
-package com.example.blablafit
+package com.example.blablafit.activities
 
 import android.os.Bundle
 import android.os.Handler
@@ -23,7 +23,7 @@ class RecyclerViewRutinas : AppCompatActivity() {
         binding.shimmerLayout.visibility = View.VISIBLE
         binding.shimmerLayout.startShimmer()
         Handler(Looper.getMainLooper()).postDelayed({
-            // Your Code
+
             binding.shimmerLayout.stopShimmer()
             binding.recycler.visibility = View.VISIBLE
             binding.shimmerLayout.visibility = View.GONE
@@ -32,16 +32,16 @@ class RecyclerViewRutinas : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(){
-        //Especifiquem que els fills del RV seran del mateix tamany i així optimitzem la seva creació
+
         binding.recycler.setHasFixedSize(true)
 
-        //indiquem que el RV es mostrarà en format llista
+
         binding.recycler.layoutManager = LinearLayoutManager(this)
 
-        //generem el adapter
+
         myAdapter.ContactosAdapter(getAnimals(),this)
 
-        //assignem el adapter al RV
+
         binding.recycler.adapter = myAdapter
     }
 

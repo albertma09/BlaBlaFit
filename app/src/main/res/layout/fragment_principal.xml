@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Principal"
+    tools:context=""
     android:background="@color/blablafit">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@+id/alimentacion" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/agua"
             android:layout_width="88dp"
             android:layout_height="101dp"
             android:src="@drawable/muslito"
