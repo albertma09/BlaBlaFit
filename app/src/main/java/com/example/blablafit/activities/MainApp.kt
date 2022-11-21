@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -20,9 +21,9 @@ import com.example.blablafit.databinding.ActivityMainAppBinding
 class MainApp : AppCompatActivity() {
     lateinit var binding: ActivityMainAppBinding
     lateinit var toggle: ActionBarDrawerToggle
-
+    lateinit var pBar : ProgressBar
     private val fragmentManager = supportFragmentManager
-
+    var progres : Int = 0
     lateinit var fragment: Fragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +37,12 @@ class MainApp : AppCompatActivity() {
             toggle.syncState()
             fragment = Principal()
 
-
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             var transaction = fragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView, Principal())
             transaction.addToBackStack(null)
             transaction.commit()
-            var profile = findViewById<ImageView>(R.id.imageView8)
+            //var profile = findViewById<ImageView>(R.id.imageView8)
 
 
 
@@ -56,8 +56,8 @@ class MainApp : AppCompatActivity() {
                     }
                     R.id.objetivoCalorias -> {
                         fragment = DadesPersonals()
-                        Toast.makeText(this@MainApp, "Second Item Clicked", Toast.LENGTH_SHORT)
-                            .show()
+                        //Toast.makeText(this@MainApp, "Second Item Clicked", Toast.LENGTH_SHORT)
+                        //    .show()
                     }
                     R.id.Objetivos -> {
                         fragment = Objetivo()
@@ -106,9 +106,21 @@ class MainApp : AppCompatActivity() {
             R.id.mapa -> {
                 abrirMapa(41.56441650669841, 2.010311059912172, "nutricionista")
             }
+
             R.id.dias_3, R.id.dias_4, R.id.dias_5, R.id.dias_6 -> fragment = Rutinas3()
             R.id.casa, R.id.gym -> fragment = rutinas4()
             R.id.camara -> enviarMensaje()
+            R.id.agua->{
+                val i : ProgressBar = findViewById(R.id.indicador)
+                progres = i.progress+10
+                i.progress= progres
+                Toast.makeText(this,progres.toString(),Toast.LENGTH_LONG).show()
+                if(i.progress == i.max){
+                    i.progress =0
+                    Toast.makeText(this,"Has bebido 2 litros",Toast.LENGTH_LONG).show()
+                }
+
+            }
         }
 
         val transaction = fragmentManager.beginTransaction()

@@ -63,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@+id/alimentacion" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/agua"
             android:layout_width="88dp"
             android:layout_height="101dp"
             android:src="@drawable/muslito"
