@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivityInicio"
+    tools:context=".activities.MainActivityInicio"
     android:background="@color/blablafit"
 
     >
@@ -19,7 +19,7 @@
         android:hint="@string/usuario_o_correo"
         android:inputType="text"
         android:lines="1"
-        android:text="test5@gmail.com"
+        android:text="test@gmail.com"
         android:textColorHint="@color/colorFormulario"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/password"

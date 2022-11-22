@@ -13,7 +13,8 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/gym"
+            android:onClick="clicked"
             android:layout_width="376dp"
             android:layout_height="97dp"
             android:background="@drawable/boton_redondeado"
@@ -27,18 +28,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.632" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/toolbar"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
-
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/casa"
+            android:onClick="clicked"
             android:layout_width="376dp"
             android:layout_height="97dp"
             android:background="@drawable/boton_redondeado"

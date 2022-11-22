@@ -13,26 +13,26 @@
         android:theme="@style/Theme.Blablafit"
         tools:targetApi="31">
         <activity
-            android:name=".RecyclerViewRutinas"
+            android:name=".activities.RecyclerViewRutinas"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainApp"
+            android:name=".activities.MainApp"
             android:exported="false" />
         <activity
-            android:name=".Registro"
+            android:name=".activities.Registro"
             android:exported="false" />
         <activity
-            android:name=".Enviar_Contrasenya"
+            android:name=".activities.Enviar_Contrasenya"
             android:exported="false" />
         <activity
-            android:name=".Recupera_Contrasenya"
+            android:name=".activities.Recupera_Contrasenya"
             android:exported="false" />
         <activity
-            android:name=".MainActivityInicio"
+            android:name=".activities.MainActivityInicio"
             android:exported="true"
             android:theme="@style/SplashScreen">
             <intent-filter>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Principal"
+    tools:context=""
     android:background="@color/blablafit">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,11 +13,12 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/dietas"
             android:layout_width="267dp"
             android:layout_height="63dp"
             android:background="@drawable/borde_edit_text"
             android:gravity="center"
+            android:onClick="clicked"
             android:text="Dietas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,41 +27,43 @@
             app:layout_constraintVertical_bias="0.254" />
 
         <TextView
-            android:id="@+id/textView4"
-
+            android:id="@+id/rutinas_menu"
+            android:onClick="clicked"
             android:layout_width="267dp"
             android:layout_height="63dp"
             android:layout_marginTop="44dp"
             android:background="@drawable/borde_edit_text"
             android:gravity="center"
             android:text="Rutinas"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintStart_toStartOf="@+id/dietas"
+            app:layout_constraintTop_toBottomOf="@+id/dietas" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:onClick="clicked"
+            android:id="@+id/alimentacion"
             android:layout_width="267dp"
             android:layout_height="63dp"
             android:layout_marginTop="44dp"
             android:background="@drawable/borde_edit_text"
             android:gravity="center"
             android:text="Alimentacion"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintStart_toStartOf="@+id/rutinas_menu"
+            app:layout_constraintTop_toBottomOf="@+id/rutinas_menu" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:onClick="clicked"
+            android:id="@+id/mapa"
             android:layout_width="267dp"
             android:layout_height="63dp"
             android:layout_marginTop="44dp"
             android:background="@drawable/borde_edit_text"
             android:gravity="center"
             android:text="Localizacion"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintStart_toStartOf="@+id/alimentacion"
+            app:layout_constraintTop_toBottomOf="@+id/alimentacion" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/agua"
             android:layout_width="88dp"
             android:layout_height="101dp"
             android:src="@drawable/muslito"

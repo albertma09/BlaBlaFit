@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_white"
-    tools:context=".DadesPersonals">
+    tools:context=".fragmentsApp.DadesPersonals">
 
     <!-- Card view for displaying the -->
     <!-- Pie chart and details of pie chart -->
@@ -27,10 +26,10 @@
             android:weightSum="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.695"
+            app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.076">
+            app:layout_constraintVertical_bias="0.153">
 
             <!--Pie chart to display the data-->
 
@@ -148,7 +147,7 @@
         </LinearLayout>
 
         <ProgressBar
-            android:id="@+id/indeterminate_linear_indicator"
+            android:id="@+id/indicador"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="237dp"
             android:layout_height="24dp"
@@ -158,15 +157,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/agua"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.708"
             tools:progress="50" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/agua"
             android:layout_width="115dp"
             android:layout_height="119dp"
+            android:onClick="clicked"
             android:background="@drawable/forma_circular"
             android:src="@drawable/imagen_vaso"
             app:layout_constraintBottom_toBottomOf="parent"

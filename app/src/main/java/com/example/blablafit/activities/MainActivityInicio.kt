@@ -1,14 +1,13 @@
-package com.example.blablafit
+package com.example.blablafit.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.animation.Animation
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.blablafit.R
 import com.google.firebase.auth.FirebaseAuth
-import com.example.blablafit.UtilsFunctions
+import com.example.blablafit.Utils.UtilsFunctions
 import com.example.blablafit.databinding.ActivityMainInicioBinding
-import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -16,11 +15,6 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivityInicio : AppCompatActivity() {
 
-    private lateinit var email: EditText
-    private lateinit var password: EditText
-    private lateinit var lbl_registro: TextView
-    private lateinit var btn_login: Button
-    private lateinit var btn_recupera_psw: TextView
     private lateinit var auth: FirebaseAuth
     private lateinit var bin: ActivityMainInicioBinding
 
@@ -46,7 +40,6 @@ class MainActivityInicio : AppCompatActivity() {
         bin.iniciar.setOnClickListener {
             login()
         }
-
 
 
         bin.recuperarPassword.setOnClickListener() {
