@@ -1,15 +1,12 @@
-package com.example.blablafit
+package com.example.blablafit.activities
 
 import android.content.Intent
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import com.example.blablafit.R
 import com.example.blablafit.databinding.ActivityEnviarContrasenyaBinding
-import com.example.blablafit.databinding.ActivityMainInicioBinding
-import com.google.android.material.tabs.TabLayout.TabGravity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
