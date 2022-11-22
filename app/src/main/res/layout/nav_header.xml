@@ -20,12 +20,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/correoMenu"
+        android:id="@+id/datos_fisicos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="@string/correo"
+        android:text="@string/datosFisicos"
         android:textColor="#33691E"
+        android:onClick="clicked"
         app:layout_constraintStart_toStartOf="@+id/nombreMenu"
         app:layout_constraintTop_toBottomOf="@+id/nombreMenu" />
 
@@ -38,8 +39,8 @@
         android:textColor="#0277BD"
         android:textStyle="bold"
         android:onClick="clicked"
-        app:layout_constraintStart_toStartOf="@+id/correoMenu"
-        app:layout_constraintTop_toBottomOf="@+id/correoMenu" />
+        app:layout_constraintStart_toStartOf="@+id/datos_fisicos"
+        app:layout_constraintTop_toBottomOf="@+id/datos_fisicos" />
 
     <TextView
         android:id="@+id/CerrarMenu"
