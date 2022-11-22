@@ -1,4 +1,4 @@
-package com.example.blablafit
+package com.example.blablafit.activities
 
 data class ContactoModel(val name:String, val description:String, private val image:String){
     var contactName: String? = null

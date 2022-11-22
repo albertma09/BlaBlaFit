@@ -64,5 +64,6 @@
     <string name="cerrar_sesion">cerrar Sesion</string>
     <string name="inicio">inicio</string>
     <string name="nombre">Nombre</string>
+    <string name="datosFisicos">Datos Fisicos</string>
 
 </resources>

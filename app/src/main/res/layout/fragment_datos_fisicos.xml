@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blablafit"
-    tools:context=".Datos_fiicos">
+    tools:context=".fragmentsApp.Datos_fisicos">
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
@@ -64,7 +64,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/recuperar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/borde_boton"
@@ -75,19 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.859" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/logo_mujer"

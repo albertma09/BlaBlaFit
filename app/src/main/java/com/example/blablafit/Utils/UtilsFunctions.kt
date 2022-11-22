@@ -1,9 +1,8 @@
-package com.example.blablafit
+package com.example.blablafit.Utils
 
 import android.content.Context
 import android.util.Log
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
 
