@@ -6,23 +6,8 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="false"
     android:background="@color/blablafit"
-    tools:context=".InsercionAlimentos">
+    tools:context=".fragmentsApp.InsercionAlimentos">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -51,7 +36,7 @@
         app:layout_constraintVertical_bias="0.978" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/agua"
         android:layout_width="115dp"
         android:layout_height="119dp"
         android:background="@drawable/forma_circular"
@@ -91,7 +76,8 @@
         app:layout_constraintVertical_bias="0.705" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/camara"
+        android:onClick="clicked"
         android:layout_width="98dp"
         android:layout_height="82dp"
         android:src="@drawable/lente_icono"

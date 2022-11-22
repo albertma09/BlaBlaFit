@@ -1,4 +1,4 @@
-package com.example.blablafit
+package com.example.blablafit.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,26 +9,23 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.blablafit.R
+import com.example.blablafit.Utils.UtilsFunctions
 import com.example.blablafit.databinding.ActivityRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class Registro : AppCompatActivity() {
 
-    private lateinit var email: EditText
-    private lateinit var password: EditText
-    private lateinit var btn_registrar: Button
-    private lateinit var lbl_iniciar_sesio: TextView
-    private lateinit var username: EditText
     private lateinit var bin: ActivityRegistroBinding
-    private lateinit var recycler : RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro)
+        bin = ActivityRegistroBinding.inflate(layoutInflater)
+        setContentView(bin.root)
+
         supportActionBar!!.hide()
-        btn_registrar = findViewById(R.id.registrar)
-        lbl_iniciar_sesio = findViewById(R.id.iniciar_sesion)
-        btn_registrar.setOnClickListener { registro() }
-        lbl_iniciar_sesio.setOnClickListener {
+        bin.registrar.setOnClickListener { registro() }
+        bin.iniciarSesion.setOnClickListener {
             login()
         }
 
@@ -36,29 +33,16 @@ class Registro : AppCompatActivity() {
 
     private fun registro() {
 
-        email = findViewById(R.id.mail)
-        password = findViewById(R.id.password)
-        username = findViewById(R.id.username)
-        password = findViewById(R.id.password)
-
-
-        val mail = email.text.toString()
-        val pass = password.text.toString()
-        val nombreUsuario = username.text.toString()
-
-
-
-
-        Log.i("TAG", mail)
-        Log.i("TAG", pass)
+        val mail = bin.mail.text.toString()
+        val pass = bin.password.text.toString()
 
 
         if (mail.isNotEmpty() && pass.isNotEmpty()) {
-            if (UtilsFunctions.checkMail(mail, pass, password)) {
+            if (UtilsFunctions.checkMail(mail, pass, bin.password)) {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            btn_registrar.setEnabled(false)
+                            bin.registrar.setEnabled(false)
                             Toast.makeText(this, "Nuevo usuario registrado", Toast.LENGTH_SHORT)
                                 .show()
                             val intent = Intent(this, MainActivityInicio::class.java)
