@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blablafit"
-    tools:context=".Datos_fiicos">
+    tools:context=".fragmentsApp.Datos_fisicos">
 
     <EditText
         android:id="@+id/editTextTextPersonName3"

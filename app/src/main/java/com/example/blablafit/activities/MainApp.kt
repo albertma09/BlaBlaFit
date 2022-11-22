@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -98,6 +97,7 @@ class MainApp : AppCompatActivity() {
     fun clicked(view: View) {
         Log.i("Test: ", "Ha entrado")
         when (view.id) {
+            R.id.datos_fisicos -> fragment = Datos_fisicos()
             R.id.imageView8 -> fragment = PerfilPersonal2()
             R.id.inicioMenu -> fragment = Principal()
             R.id.dietas -> fragment = Dietas()
@@ -109,7 +109,7 @@ class MainApp : AppCompatActivity() {
 
             R.id.dias_3, R.id.dias_4, R.id.dias_5, R.id.dias_6 -> fragment = Rutinas3()
             R.id.casa, R.id.gym -> fragment = rutinas4()
-            R.id.camara -> enviarMensaje()
+            //R.id.camara -> enviarMensaje()
             R.id.agua->{
                 val i : ProgressBar = findViewById(R.id.indicador)
                 progres = i.progress+10
