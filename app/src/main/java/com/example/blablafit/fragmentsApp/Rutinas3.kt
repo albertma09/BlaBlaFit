@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.blablafit.R
+import com.example.blablafit.databinding.FragmentRutinas2Binding
+import com.example.blablafit.databinding.FragmentRutinas3Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,7 +24,8 @@ class Rutinas3 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    private var _binding: FragmentRutinas3Binding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +38,15 @@ class Rutinas3 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentRutinas3Binding.inflate(inflater, container, false)
+        val root: View = binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rutinas3, container, false)
+        binding.casa.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_rutinas3_to_rutinas4)
+        }
+
+
+        return root
     }
 
     companion object {

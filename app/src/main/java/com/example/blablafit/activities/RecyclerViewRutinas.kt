@@ -39,7 +39,7 @@ class RecyclerViewRutinas : AppCompatActivity() {
         binding.recycler.layoutManager = LinearLayoutManager(this)
 
 
-        myAdapter.ContactosAdapter(getAnimals(),this)
+        myAdapter.ContactosAdapter(getAnimals())
 
 
         binding.recycler.adapter = myAdapter
