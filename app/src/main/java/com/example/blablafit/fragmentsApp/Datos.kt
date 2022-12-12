@@ -1,14 +1,20 @@
 package com.example.blablafit.fragmentsApp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.fragment.navArgs
 import com.example.blablafit.R
-import com.example.blablafit.databinding.FragmentPrincipalBinding
-import com.example.blablafit.databinding.FragmentRutinasBinding
+import com.example.blablafit.activities.MainApp
+import com.example.blablafit.databinding.FragmentDatosBinding
+import com.example.blablafit.databinding.FragmentDatosFisicosBinding
+import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,39 +23,41 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Rutinas.newInstance] factory method to
+ * Use the [Datos.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Rutinas : Fragment() {
+class Datos : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var _binding: FragmentRutinasBinding? = null
+
+    val args: DatosArgs by navArgs()
+    private lateinit var _binding : FragmentDatosBinding
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+        //Log.i("Log",args.puntos.toString())
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRutinasBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        _binding = FragmentDatosBinding.inflate(layoutInflater)
+
+
+        val view = binding.root
+        return view
         // Inflate the layout for this fragment
-        binding.ganarMasa.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_rutinas_to_rutinas2)
-        }
-        binding.perderGrasa.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_rutinas_to_rutinas2)
-        }
+        //return inflater.inflate(R.layout.fragment_datos, container, false)
+    }
 
-
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val tv: TextView = view.findViewById(R.id.textViu)
+        val nombre = args.nombre
+        val imagen = args.imageURL
+        Picasso.get().load(imagen).into(binding.imageView3)
+        tv.text = nombre
     }
 
     companion object {
@@ -59,12 +67,12 @@ class Rutinas : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Rutinas.
+         * @return A new instance of fragment Datos.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Rutinas().apply {
+            Datos().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.blablafit.R
+import com.example.blablafit.activities.MainApp
 import com.example.blablafit.databinding.FragmentDadesPersonalsBinding
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +27,7 @@ class DadesPersonals : Fragment() {
     private var param2: String? = null
     private lateinit var _binding: FragmentDadesPersonalsBinding
     private val binding get() = _binding!!
+    var progres : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -48,16 +50,26 @@ class DadesPersonals : Fragment() {
 
     fun updateBar(){
 
-       /* val i : ProgressBar = findViewById(R.id.indicador)
-        progres = i.progress+10
-        i.progress= progres
-        Toast.makeText(this,progres.toString(), Toast.LENGTH_LONG).show()
-        if(i.progress == i.max){
-            i.progress =0
-            Toast.makeText(this,"Has bebido 2 litros", Toast.LENGTH_LONG).show()
-        }*/
+
+
+
+            val i : ProgressBar = binding.indicador
+
+            progres = i.progress + 10
+            if( progres > i.max){
+
+                progres = 0
+                i.progress = 0
+            }else{
+                i.progress = progres
+            }
+            println(i.progress )
+            //if(i.progress == 100){
+             //   i.progress = 0
+            //}
+
+        }
 
     }
 
 
-}

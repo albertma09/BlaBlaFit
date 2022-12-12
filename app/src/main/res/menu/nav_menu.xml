@@ -11,7 +11,7 @@
         app:actionLayout="@layout/progress_bar_menu"
         />
     <item
-        android:id="@+id/Objetivos"
+        android:id="@+id/objetivos"
         android:icon="@null"
         android:title="@null"
         app:actionLayout="@layout/progress_bar2_menu"
