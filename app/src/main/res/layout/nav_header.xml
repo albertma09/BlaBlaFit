@@ -50,6 +50,7 @@
         android:text="@string/cerrar_sesion"
         android:textColor="#00838F"
         android:textStyle="bold"
+        android:onClick="clicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/inicioMenu"
         app:layout_constraintTop_toBottomOf="@+id/inicioMenu"

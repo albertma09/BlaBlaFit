@@ -125,7 +125,7 @@
         <argument
             android:name="imageURL"
             app:argType="string" />
-    </fragment>
+    </fragment><action android:id="@+id/action_global_objetivo" app:destination="@id/objetivo"/><action android:id="@+id/action_global_principal" app:destination="@id/principal"/><action android:id="@+id/action_global_datos_fiicos" app:destination="@id/datos_fiicos"/>
 
 
 </navigation>

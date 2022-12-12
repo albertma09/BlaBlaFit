@@ -44,6 +44,9 @@ class Rutinas3 : Fragment() {
         binding.casa.setOnClickListener{
             Navigation.findNavController(it).navigate(R.id.action_rutinas3_to_rutinas4)
         }
+        binding.gym.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_rutinas3_to_rutinas4)
+        }
 
 
         return root
