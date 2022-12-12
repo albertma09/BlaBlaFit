@@ -1,7 +1,12 @@
 package com.example.blablafit.activities
 
+import android.Manifest
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +17,8 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -127,6 +134,7 @@ class MainApp : AppCompatActivity() {
             R.id.inicioMenu -> Navigation.findNavController(binding.navHostFragment)
                 .navigate(R.id.action_global_principal)
             R.id.mapa -> {
+                //val gps : GPSTracker
                 abrirMapa(41.56441650669841, 2.010311059912172, "nutricionista")
             }
             R.id.CerrarMenu -> {
@@ -157,6 +165,14 @@ class MainApp : AppCompatActivity() {
         //binding.drawerLayout.close()
 
 
+    }
+
+    fun getLocation(){
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if((ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED)){
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),2)
+        }
+        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5f,this)
     }
 
 //    override fun onBackPressed() {
