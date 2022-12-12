@@ -1,5 +1,6 @@
 package com.example.blablafit.activities
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,16 +14,21 @@ import com.example.blablafit.R
 import com.example.blablafit.Utils.UtilsFunctions
 import com.example.blablafit.databinding.ActivityRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 
 class Registro : AppCompatActivity() {
-
+    private lateinit var auth: FirebaseAuth
     private lateinit var bin: ActivityRegistroBinding
-
+    private lateinit var db: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bin = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(bin.root)
-
+        db = Firebase.firestore
         supportActionBar!!.hide()
         bin.registrar.setOnClickListener { registro() }
         bin.iniciarSesion.setOnClickListener {
@@ -32,13 +38,14 @@ class Registro : AppCompatActivity() {
     }
 
     private fun registro() {
-
+        val user = bin.username.text.toString()
         val mail = bin.mail.text.toString()
         val pass = bin.password.text.toString()
+        auth = Firebase.auth
 
-
-        if (mail.isNotEmpty() && pass.isNotEmpty()) {
+        if (mail.isNotEmpty() && pass.isNotEmpty() && user.isNotEmpty()) {
             if (UtilsFunctions.checkMail(mail, pass, bin.password)) {
+
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -48,6 +55,7 @@ class Registro : AppCompatActivity() {
                             val intent = Intent(this, MainActivityInicio::class.java)
                             startActivity(intent)
                             //showAlertConnect()
+                            registrarUserBase()
 
 
                         } else {
@@ -60,6 +68,31 @@ class Registro : AppCompatActivity() {
             Toast.makeText(this, "Faltan datos por introducir", Toast.LENGTH_SHORT).show()
 
         }
+
+
+    }
+
+
+
+    private fun registrarUserBase(){
+        val user = bin.username.text.toString()
+        val mail = bin.mail.text.toString()
+        val pass = bin.password.text.toString()
+
+        auth = Firebase.auth
+        val usuario = hashMapOf(
+            "nombre_usuario" to user,
+            "email" to mail,
+            "passwd" to pass,
+            "genero" to null,
+            "altura" to null,
+            "lista_peso" to null,
+            "edad" to null,
+            "lista_objetivos" to null,
+            "rutina" to null,
+        )
+        db.collection("usuarios").document(auth.uid.toString()).set(usuario)
+
 
 
     }
