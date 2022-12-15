@@ -157,6 +157,7 @@ class MainApp : AppCompatActivity() {
 
                 }
 
+
                 //locationManager.
                 //getLocation()
                 //Toast.makeText(this,getLocation(),Toast.LENGTH_SHORT).show()
@@ -183,11 +184,6 @@ class MainApp : AppCompatActivity() {
 
         binding.drawerLayout.close()
 
-        //var transaction = fragmentManager.beginTransaction()
-        //transaction.replace(R.id.nav_host_fragment, fragment)
-        //transaction.addToBackStack(null)
-        //transaction.commit()
-        //binding.drawerLayout.close()
 
 
     }
