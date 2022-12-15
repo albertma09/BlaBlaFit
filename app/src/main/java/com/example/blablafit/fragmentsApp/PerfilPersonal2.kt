@@ -15,8 +15,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.blablafit.R
 import com.example.blablafit.databinding.FragmentDatosFisicosBinding
 import com.example.blablafit.databinding.FragmentPerfilPersonal2Binding
+import com.example.blablafit.databinding.FragmentRutinas4Binding
 import com.google.android.gms.common.internal.Constants
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
@@ -54,8 +57,10 @@ class PerfilPersonal2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentPerfilPersonal2Binding.inflate(layoutInflater)
+        val root: View = binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil_personal2, container, false)
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,6 +70,7 @@ class PerfilPersonal2 : Fragment() {
     }
 
     fun managePhotoUri(fileUri : Uri){
+        auth = Firebase.auth
         val sRef: StorageReference =
             storage.reference.child("usersImages/${auth.uid.toString()}/perfil")
         sRef.putFile(fileUri)

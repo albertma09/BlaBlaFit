@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.blablafit.R
+import com.example.blablafit.databinding.FragmentRutinas2Binding
+import com.example.blablafit.databinding.FragmentRutinasBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,7 +24,8 @@ class Rutinas2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    private var _binding: FragmentRutinas2Binding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +38,24 @@ class Rutinas2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentRutinas2Binding.inflate(inflater, container, false)
+        val root: View = binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rutinas2, container, false)
+        binding.dias3.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
+        }
+        binding.dias4.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
+        }
+        binding.dias5.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
+        }
+        binding.dias6.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
+        }
+
+
+        return root
     }
 
     companion object {
