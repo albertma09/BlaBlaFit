@@ -71,7 +71,7 @@ class PerfilPersonal2 : Fragment() {
     }
 
    fun afegirImatge(){
-    getContent.launch("ImagenPerfil/*")
+    getContent.launch("image/*")
     }
     companion object {
         /**

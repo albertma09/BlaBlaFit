@@ -1,16 +1,19 @@
 package com.example.blablafit.fragmentsApp
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.blablafit.R
 import com.example.blablafit.databinding.FragmentDadesPersonalsBinding
-import com.google.firebase.storage.FirebaseStorage
+import org.eazegraph.lib.charts.PieChart
+import org.eazegraph.lib.models.PieModel
+
+
+
+
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -26,11 +29,12 @@ class DadesPersonals : Fragment() {
 
     private lateinit var _binding: FragmentDadesPersonalsBinding
     private val binding get() = _binding!!
+    var progres : Int = 0
+    var pieChart: PieChart? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
 
-        }
+
     }
 
     override fun onCreateView(
@@ -38,8 +42,33 @@ class DadesPersonals : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDadesPersonalsBinding.inflate(layoutInflater)
+        _binding.piechart.addPieSlice(
+            PieModel(
+                "Calorias", 600F,
+                Color.parseColor("#FFA726")
+            )
+        )
+        _binding.piechart.addPieSlice(
+            PieModel(
+                "Proteinas", 20F,
+                Color.parseColor("#66BB6A")
+            )
+        )
+        _binding.piechart.addPieSlice(
+            PieModel(
+                "Carbohidratos", 350F,
+                Color.parseColor("#EF5350")
+            )
+        )
+        _binding.piechart.addPieSlice(
+            PieModel(
+                "Grasas", 100F,
+                Color.parseColor("#29B6F6")
+            )
+        )
         val view = binding.root
         _binding.agua.setOnClickListener { updateBar() }
+
         return view
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_dades_personals, container, false)
@@ -47,16 +76,26 @@ class DadesPersonals : Fragment() {
 
     fun updateBar(){
 
-       /* val i : ProgressBar = findViewById(R.id.indicador)
-        progres = i.progress+10
-        i.progress= progres
-        Toast.makeText(this,progres.toString(), Toast.LENGTH_LONG).show()
-        if(i.progress == i.max){
-            i.progress =0
-            Toast.makeText(this,"Has bebido 2 litros", Toast.LENGTH_LONG).show()
-        }*/
+
+
+
+        val i : ProgressBar = binding.indicador
+
+        progres = i.progress + 10
+        if( progres > i.max){
+
+            progres = 0
+            i.progress = 0
+        }else{
+            i.progress = progres
+        }
+        println(i.progress )
+        //if(i.progress == 100){
+        //   i.progress = 0
+        //}
 
     }
 
-
 }
+
+
