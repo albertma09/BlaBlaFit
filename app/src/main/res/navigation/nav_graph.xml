@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_principal_to_dietas"
             app:destination="@id/dietas" />
+        <action
+            android:id="@+id/action_principal_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/rutinas"
@@ -126,6 +129,11 @@
             android:name="imageURL"
             app:argType="string" />
     </fragment><action android:id="@+id/action_global_objetivo" app:destination="@id/objetivo"/><action android:id="@+id/action_global_principal" app:destination="@id/principal"/><action android:id="@+id/action_global_datos_fiicos" app:destination="@id/datos_fiicos"/>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.blablafit.fragmentsApp.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" /><action android:id="@+id/action_global_mapsFragment" app:destination="@id/mapsFragment"/>
 
 
 </navigation>

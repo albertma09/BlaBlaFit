@@ -48,15 +48,13 @@ class MainApp : AppCompatActivity() {
 
     var progres: Int = 0
     lateinit var fragment: Fragment
-    private var tvLatitude : String = "0"
-    private var tvLongitude : String = "0"
+    private var tvLatitude: String = "0"
+    private var tvLongitude: String = "0"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
 
         var locationManager: LocationManager = getSystemService(LOCATION_SERVICE) as LocationManager
         val navHostFragment =
@@ -77,19 +75,16 @@ class MainApp : AppCompatActivity() {
                     //fragment = PerfilPersonal()
                     Navigation.findNavController(binding.navHostFragment)
                         .navigate(R.id.action_global_perfilPersonal2)
-                    //navController.navigate(R.id.action_global_perfilPersonal2)
+
 
 
                 }
                 R.id.objetivoCalorias -> {
 
-                    // navHostFragment.navigate(
 
-                    //fragment = DadesPersonals()
                     Navigation.findNavController(binding.navHostFragment)
                         .navigate(R.id.action_global_dadesPersonals)
-                    //Toast.makeText(this@MainApp, "Second Item Clicked", Toast.LENGTH_SHORT)
-                    //    .show()
+
                 }
                 R.id.objetivos -> {
 
@@ -118,10 +113,6 @@ class MainApp : AppCompatActivity() {
                         .show()
                 }
             }
-            //transaction = fragmentManager.beginTransaction()
-            //transaction.replace(R.id.fragmentContainerView, fragment)
-            //transaction.addToBackStack(null)
-            //transaction.commit()
             binding.drawerLayout.close()
             true
 
@@ -151,11 +142,11 @@ class MainApp : AppCompatActivity() {
             R.id.inicioMenu -> Navigation.findNavController(binding.navHostFragment)
                 .navigate(R.id.action_global_principal)
             R.id.mapa -> {
+                Navigation.findNavController(binding.navHostFragment)
+                    .navigate(R.id.action_global_mapsFragment)
 
-                if (Build.VERSION.SDK_INT >= 23) {
-                    requestPermission()
 
-                }
+                requestPermission()
 
 
                 //locationManager.
@@ -185,7 +176,6 @@ class MainApp : AppCompatActivity() {
         binding.drawerLayout.close()
 
 
-
     }
 
     private fun getCurrentLocation() {
@@ -208,19 +198,11 @@ class MainApp : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Null Received", Toast.LENGTH_SHORT)
                             .show()
                     } else {
-                        tvLatitude=location.latitude.toString()
+                        tvLatitude = location.latitude.toString()
                         tvLongitude = location.longitude.toString()
                         Toast.makeText(applicationContext, "Get success", Toast.LENGTH_SHORT).show()
-                        Toast.makeText(
-                            applicationContext,
-                            location.latitude.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        Toast.makeText(
-                            applicationContext,
-                            location.longitude.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
+
+
                     }
                 }
             } else {
@@ -236,7 +218,7 @@ class MainApp : AppCompatActivity() {
     }
 
     companion object {
-        private const val PERMISSION_REQUEST_ACCESS_LOCATION = 100
+        private const val PERMISSION_REQUEST_ACCESS_LOCATION = 1000
     }
 
     private fun requestPermission() {
@@ -275,7 +257,7 @@ class MainApp : AppCompatActivity() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(applicationContext, "Granted", Toast.LENGTH_SHORT)
                 getCurrentLocation()
-                abrirMapa(tvLatitude.toDouble(), tvLongitude.toDouble(), "nutricionista")
+                //abrirMapa(tvLatitude.toDouble(), tvLongitude.toDouble(), "nutricionista")
             } else {
                 Toast.makeText(applicationContext, "Denied", Toast.LENGTH_SHORT)
 

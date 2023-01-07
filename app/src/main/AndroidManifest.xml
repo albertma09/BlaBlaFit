@@ -21,7 +21,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyC2dRaRFrQy3sD0MY-jZijYhY444bwUv0Y" />
 
         <activity
             android:name=".activities.RecyclerViewRutinas"
