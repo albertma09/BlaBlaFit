@@ -25,11 +25,13 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.example.blablafit.*
 import com.example.blablafit.databinding.ActivityMainAppBinding
+import com.example.blablafit.databinding.ProgressBar2MenuBinding
 import com.example.blablafit.fragmentsApp.*
 
 
 class MainApp : AppCompatActivity() {
     lateinit var binding: ActivityMainAppBinding
+
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var pBar: ProgressBar
     lateinit var navHostFragment: NavHostFragment

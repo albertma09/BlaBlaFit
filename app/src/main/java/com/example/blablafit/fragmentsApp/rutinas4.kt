@@ -1,8 +1,10 @@
 package com.example.blablafit.fragmentsApp
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,8 @@ import com.example.blablafit.activities.ContactosAdapter
 import com.example.blablafit.databinding.ActivityRecyclerViewBinding
 import com.example.blablafit.databinding.FragmentRutinas3Binding
 import com.example.blablafit.databinding.FragmentRutinas4Binding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 private const val ARG_PARAM1 = "param1"
@@ -25,9 +29,12 @@ class rutinas4 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var dato: ArrayList<ContactoModel>? = null
+    private var tamaño : Int?= null
     private lateinit var _binding: FragmentRutinas4Binding
     private val binding get() = _binding!!
     private val myAdapter: ContactosAdapter = ContactosAdapter()
+    val db = Firebase.firestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -75,58 +82,35 @@ class rutinas4 : Fragment() {
     }
 
     private fun getAnimals(): MutableList<ContactoModel> {
-        val animals: MutableList<ContactoModel> = arrayListOf()
-        animals.add(
-            ContactoModel(
-                "Eriçó",
-                "Erinaceinae",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6jimbnhKGIjk--l0ovAaI4qVdLXFo3CJDhA&usqp=CAU"
-            )
-        )
-        animals.add(
-            ContactoModel(
-                "Gat",
-                "Felis catus",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdG0gms0eSr1cF0XnKqOObx_mAKOMP0Hez3g&usqp=CAU"
-            )
-        )
-        animals.add(
-            ContactoModel(
-                "Cisne",
-                "Cygnus olor",
-                "https://www.faunia.es/content/dam/fau/images/descubre-faunia/planea-tu-visita/animales/aves/cisne-negro/Cisne-negro-Animales-Faunia-main.jpg"
-            )
-        )
-        animals.add(
-            ContactoModel(
-                "Gos",
-                "Canis lupus familiaris",
-                "https://static3.lasprovincias.es/www/multimedia/202110/29/media/cortadas/perro-kSgG-U1509933224883BG-624x385@Las%20Provincias.jpg"
-            )
-        )
-        animals.add(
-            ContactoModel(
-                "Tigre",
-                "Phantera tigris",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Tigress_at_Jim_Corbett_National_Park.jpg/250px-Tigress_at_Jim_Corbett_National_Park.jpg"
-            )
-        )
-        animals.add(
-            ContactoModel(
-                "ovella",
-                "Ovis aries",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flock_of_sheep.jpg/245px-Flock_of_sheep.jpg"
-            )
-        )
-        animals.add(
-            ContactoModel(
-                "pardal",
-                "Passer domesticus",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/HouseSparrow23.jpg/245px-HouseSparrow23.jpg"
-            )
-        )
+        val rutinas: MutableList<ContactoModel> = arrayListOf()
 
-        return animals
+        db.collection("Rutinas").document("uGVdPT1Jll9XvxRTZsID").collection("rutina").document("Dia2").get()
+            .addOnSuccessListener {
+                dato = it.get("Ejercicios") as ArrayList <ContactoModel>
+                tamaño = dato!!.size
+                var cuenta= 0
+                while(cuenta<tamaño!!){
+                    val obj2 = dato!![cuenta] as HashMap<*,ContactoModel>
+
+                    rutinas.add(
+                        ContactoModel(
+                            "${obj2["nombre"].toString()}",
+                            "${obj2["series"].toString()}",
+                            "${obj2["repeticiones"].toString()}",
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6jimbnhKGIjk--l0ovAaI4qVdLXFo3CJDhA&usqp=CAU"
+                        )
+                    )
+                    cuenta++
+                }
+
+
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+
+
+        return rutinas
 
     }
 

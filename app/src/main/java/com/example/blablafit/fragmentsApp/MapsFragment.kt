@@ -1,4 +1,4 @@
-package com.example.blablafit.fragmentsApp
+/*package com.example.blablafit.fragmentsApp
 
 import androidx.fragment.app.Fragment
 
@@ -37,4 +37,4 @@ class MapsFragment : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
-}
+}*/
