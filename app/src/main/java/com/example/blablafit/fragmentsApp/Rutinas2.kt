@@ -6,9 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.blablafit.R
 import com.example.blablafit.databinding.FragmentRutinas2Binding
 import com.example.blablafit.databinding.FragmentRutinasBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,12 +32,13 @@ class Rutinas2 : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentRutinas2Binding? = null
     private val binding get() = _binding!!
+    private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        db = Firebase.firestore
+        auth = Firebase.auth
+
     }
 
     override fun onCreateView(
@@ -42,15 +49,24 @@ class Rutinas2 : Fragment() {
         val root: View = binding.root
         // Inflate the layout for this fragment
         binding.dias3.setOnClickListener{
+
+            db.collection("usuarios").document(auth.uid.toString()).update("entrenoSemanal",3)
             Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
         }
         binding.dias4.setOnClickListener{
+
+
+            db.collection("usuarios").document(auth.uid.toString()).update("entrenoSemanal",4)
             Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
         }
         binding.dias5.setOnClickListener{
+
+            db.collection("usuarios").document(auth.uid.toString()).update("entrenoSemanal",5)
             Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
         }
         binding.dias6.setOnClickListener{
+
+            db.collection("usuarios").document(auth.uid.toString()).update("entrenoSemanal",6)
             Navigation.findNavController(it).navigate(R.id.action_rutinas2_to_rutinas3)
         }
 

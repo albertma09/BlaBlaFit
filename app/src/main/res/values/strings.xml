@@ -66,5 +66,6 @@
     <string name="nombre">Nombre</string>
     <string name="datosFisicos">Datos Fisicos</string>
     <string name="cantidad_gramos">cantidad(gramos)</string>
+    <string name="dia">Dia</string>
 
 </resources>

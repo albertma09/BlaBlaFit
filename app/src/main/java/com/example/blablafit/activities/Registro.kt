@@ -95,6 +95,8 @@ class Registro : AppCompatActivity() {
             "edad" to null,
             "lista_objetivos" to null,
             "rutina" to null,
+            "entrenoSemanal" to null,
+            "lugar" to null,
         )
         db.collection("usuarios").document(auth.uid.toString()).set(usuario)
 

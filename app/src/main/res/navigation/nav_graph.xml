@@ -43,8 +43,10 @@
         android:label="fragment_rutinas3"
         tools:layout="@layout/fragment_rutinas3" >
         <action
-            android:id="@+id/action_rutinas3_to_rutinas4"
-            app:destination="@id/rutinas4" />
+            android:id="@+id/action_rutinas3_to_rutinaseleccionada3"
+            app:destination="@id/rutinaseleccionada" />
+        <argument android:name="entrenos"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/rutinas4"
@@ -53,7 +55,13 @@
         tools:layout="@layout/fragment_rutinas4" >
         <action
             android:id="@+id/action_rutinas4_to_datos"
-            app:destination="@id/datos" />
+            app:destination="@id/datos" >
+            <argument
+                android:name="nombre" />
+        </action>
+        <argument
+            android:name="dia"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/dietas"
@@ -126,6 +134,21 @@
             android:name="imageURL"
             app:argType="string" />
     </fragment><action android:id="@+id/action_global_objetivo" app:destination="@id/objetivo"/><action android:id="@+id/action_global_principal" app:destination="@id/principal"/><action android:id="@+id/action_global_datos_fiicos" app:destination="@id/datos_fiicos"/>
+    <fragment
+        android:id="@+id/rutinaseleccionada"
+        android:name="com.example.blablafit.fragmentsApp.rutinaseleccionada"
+        android:label="fragment_rutinaseleccionada"
+        tools:layout="@layout/fragment_rutinaseleccionada" >
+        <action
+            android:id="@+id/action_rutinaseleccionada_to_rutinas4"
+            app:destination="@id/rutinas4" />
+        <argument
+            android:name="entrenos"
+            app:argType="long" />
+        <argument
+            android:name="lugar"
+            app:argType="string" />
+    </fragment>
 
 
 </navigation>
