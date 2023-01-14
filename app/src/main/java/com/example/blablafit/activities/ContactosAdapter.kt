@@ -41,7 +41,8 @@ class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
             with(contactos.get(position)) {
 
                 binding.contactName.text= this.name
-                binding.description1.text = this.description
+                binding.series.text = this.series
+                binding.description1.text = this.repeticiones
                 Picasso.get().load(this.contactImage).into(binding.imageView7)
 
             }
