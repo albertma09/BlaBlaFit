@@ -19,7 +19,7 @@
             android:background="@drawable/borde_edit_text"
             android:gravity="center"
             android:onClick="clicked"
-            android:text="@"
+            android:text="Dietas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
