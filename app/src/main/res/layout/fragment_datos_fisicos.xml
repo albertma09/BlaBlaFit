@@ -8,13 +8,12 @@
     tools:context=".fragmentsApp.Datos_fisicos">
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/altura"
         android:layout_width="230dp"
         android:layout_height="48dp"
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
         android:hint="@string/altura"
-        android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="@color/colorFormulario"
         android:textSize="18sp"
@@ -23,16 +22,17 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.452" />
+        app:layout_constraintVertical_bias="0.452"
+        android:inputType="phone"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName1"
+        android:id="@+id/edad"
         android:layout_width="230dp"
         android:layout_height="48dp"
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
         android:hint="@string/edad"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         android:minHeight="48dp"
         android:textColorHint="@color/colorFormulario"
         android:textSize="18sp"
@@ -44,14 +44,14 @@
         app:layout_constraintVertical_bias="0.702" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/peso"
         android:layout_width="230dp"
         android:layout_height="48dp"
 
         android:background="@drawable/borde_edit_text"
         android:gravity="center"
         android:hint="@string/peso"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         android:minHeight="48dp"
         android:textColorHint="@color/colorFormulario"
         android:textSize="18sp"

@@ -1,6 +1,6 @@
 package com.example.blablafit.fragmentsApp
 
-import android.content.ContentValues.TAG
+import android.content.ContentValues
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,41 +9,42 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.blablafit.R
 import com.example.blablafit.activities.ContactoModel
 import com.example.blablafit.activities.ContactosAdapter
+import com.example.blablafit.activities.DiasAdapter
 import com.example.blablafit.activities.DiasModel
-import com.example.blablafit.databinding.ActivityRecyclerViewBinding
-import com.example.blablafit.databinding.FragmentRutinas3Binding
 import com.example.blablafit.databinding.FragmentRutinas4Binding
+import com.example.blablafit.databinding.FragmentRutinaseleccionadaBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-
-class rutinas4 : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ * Use the [rutinaseleccionada.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class rutinaseleccionada : Fragment() {
     // TODO: Rename and change types of parameters
-    val args : rutinas4Args by navArgs()
     private var param1: String? = null
     private var param2: String? = null
-    private var dato: ArrayList<ContactoModel>? = null
+    private var dato: ArrayList<DiasModel>? = null
     private var tamaño : Int?= null
-    private lateinit var _binding: FragmentRutinas4Binding
+    private lateinit var _binding: FragmentRutinaseleccionadaBinding
     private val binding get() = _binding!!
-    private val myAdapter: ContactosAdapter = ContactosAdapter()
+    private val myAdapter: DiasAdapter = DiasAdapter()
     val db = Firebase.firestore
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         auth = Firebase.auth
 
     }
@@ -53,7 +54,7 @@ class rutinas4 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRutinas4Binding.inflate(layoutInflater)
+        _binding = FragmentRutinaseleccionadaBinding.inflate(layoutInflater)
         _binding.recycler.visibility = View.GONE
         _binding.shimmerLayout.visibility = View.VISIBLE
         binding.shimmerLayout.startShimmer()
@@ -78,48 +79,33 @@ class rutinas4 : Fragment() {
         binding.recycler.layoutManager = LinearLayoutManager(context)
 
 
-        myAdapter.ContactosAdapter(getAnimals())
+        myAdapter.DiasAdapter(getAnimals())
 
 
         binding.recycler.adapter = myAdapter
 
     }
 
-    private fun getAnimals(): MutableList<ContactoModel> {
-        val rutinas: MutableList<ContactoModel> = arrayListOf()
-        val dia = args.dia
-
-
-        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
-            var documento = it.get("rutina") as String
+    private fun getAnimals(): MutableList<DiasModel> {
+        val rutinas: MutableList<DiasModel> = arrayListOf()
+db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
+    var documento = it.get("rutina") as String
+    println(documento)
+    db.collection("Rutinas").document(documento).collection("rutina").get()
+        .addOnSuccessListener {documents->
             println(documento)
-            db.collection("Rutinas").document(documento).collection("rutina").document(dia).get()
-                .addOnSuccessListener {
-                    println(documento)
-                    dato = it.get("Ejercicios") as ArrayList <ContactoModel>
-                    tamaño = dato!!.size
-                    var cuenta= 0
-                    while(cuenta<tamaño!!){
-                        val obj2 = dato!![cuenta] as HashMap<*,ContactoModel>
-
-                        rutinas.add(
-                            ContactoModel(
-                                "${obj2["nombre"].toString()}",
-                                "${obj2["series"].toString()}",
-                                "${obj2["repeticiones"].toString()}",
-                                "https://i.pinimg.com/736x/8a/20/ac/8a20acbac58378c9e293719b523c45b7.jpg"
-                            )
+            for (document in documents){
+                rutinas.add(
+                    DiasModel(
+                        document.id,
                         )
-                        cuenta++
-                    }
-
-
-                }
-                .addOnFailureListener { exception ->
-                    Log.w(TAG, "Error getting documents: ", exception)
-                }
+                )
+            }
         }
-
+        .addOnFailureListener { exception ->
+            Log.w(ContentValues.TAG, "Error getting documents: ", exception)
+        }
+}
 
 
 

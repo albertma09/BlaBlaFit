@@ -9,31 +9,35 @@
     tools:context=".fragmentsApp.InsercionAlimentos">
 
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/gramos"
+        android:layout_width="186dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="88dp"
+
+        android:layout_marginBottom="39dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:hint="@string/cantidad_gramos"
+        android:textColorHint="#2E7D32"
+        app:layout_constraintBottom_toTopOf="@+id/guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toEndOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="phone" />
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="208dp"
         android:layout_height="57dp"
+        android:layout_marginStart="4dp"
         android:background="#FFFFFF"
         android:contentDescription="@string/seleccionar_alimento"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintBottom_toTopOf="@+id/guardar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="146dp"
-        android:layout_height="54dp"
-        android:background="#398311"
-        android:contentDescription="@string/cantidad"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.978" />
+        app:layout_constraintVertical_bias="0.682" />
 
     <ImageView
         android:id="@+id/agua"
@@ -89,7 +93,7 @@
         app:layout_constraintVertical_bias="0.844" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/guardar"
         android:layout_width="145dp"
         android:layout_height="51dp"
         android:backgroundTint="@color/colorBotones"
@@ -101,5 +105,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.273" />
+    <TextView
+        android:singleLine="true"
+        android:id="@+id/snackbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
