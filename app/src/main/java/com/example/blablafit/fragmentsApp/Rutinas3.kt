@@ -9,6 +9,11 @@ import androidx.navigation.Navigation
 import com.example.blablafit.R
 import com.example.blablafit.databinding.FragmentRutinas2Binding
 import com.example.blablafit.databinding.FragmentRutinas3Binding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,12 +31,12 @@ class Rutinas3 : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentRutinas3Binding? = null
     private val binding get() = _binding!!
+    private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        db = Firebase.firestore
+        auth = Firebase.auth
     }
 
     override fun onCreateView(
@@ -41,17 +46,48 @@ class Rutinas3 : Fragment() {
         _binding = FragmentRutinas3Binding.inflate(inflater, container, false)
         val root: View = binding.root
         // Inflate the layout for this fragment
-        binding.casa.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_rutinas3_to_rutinas4)
+        binding.casa.setOnClickListener{nav->
+
+            db.collection("usuarios").document(auth.uid.toString()).update("lugar","casa").addOnSuccessListener {
+                rutina(nav)
+            }
+
+
         }
-        binding.gym.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_rutinas3_to_rutinas4)
+        binding.gym.setOnClickListener{nav->
+
+            db.collection("usuarios").document(auth.uid.toString()).update("lugar","gimnasio").addOnSuccessListener {
+                rutina(nav)
+            }
+
         }
 
 
         return root
     }
 
+    fun rutina(nav:View){
+        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
+            var userDias = it.get("entrenoSemanal") as Long
+            var userLugar = it.get("lugar") as String
+
+            db.collection("Rutinas").get().addOnSuccessListener { documents->
+                var dias : Long
+                var lugar : String
+                for (document in documents){
+                    dias = document.get("dias") as Long
+                    lugar = document.get("lugar") as String
+
+                    if (userDias==dias&&userLugar.equals(lugar)){
+                        db.collection("usuarios").document(auth.uid.toString()).update("rutina",document.id).addOnSuccessListener {
+                            Navigation.findNavController(nav).navigate(R.id.action_rutinas3_to_rutinaseleccionada3)
+                        }
+                    }
+                }
+
+            }
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

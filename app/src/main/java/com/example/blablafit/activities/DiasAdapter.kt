@@ -7,25 +7,27 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.blablafit.databinding.CardView2Binding
 import com.example.blablafit.databinding.CardViewBinding
 import com.example.blablafit.fragmentsApp.rutinas4Directions
+import com.example.blablafit.fragmentsApp.rutinaseleccionadaDirections
 import com.squareup.picasso.Picasso
 
 
-class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
-    var contactos: MutableList<ContactoModel> = ArrayList()
+class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
+    var dias: MutableList<DiasModel> = ArrayList()
     //lateinit var context: Context
 
 
-    fun ContactosAdapter(contactos: MutableList<ContactoModel>) {
-        this.contactos = contactos
+    fun DiasAdapter(dias: MutableList<DiasModel>) {
+        this.dias = dias
         //this.context = contxt
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ViewHolder(
-            CardViewBinding.inflate(
+            CardView2Binding.inflate(
                 layoutInflater, parent, false
             )
         )
@@ -38,27 +40,25 @@ class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
             holder.itemView.setOnClickListener(){
                 println("GGGG")
             }
-            with(contactos.get(position)) {
+            with(dias.get(position)) {
 
-                binding.contactName.text= this.name
-                binding.series.text = this.series
-                binding.description1.text = this.repeticiones
-                Picasso.get().load(this.contactImage).into(binding.imageView7)
+                binding.contactName.text= this.dia
+
 
             }
 
         }
 
-        val item = contactos.get(position)
+        val item = dias.get(position)
 
 
 
 
         holder.itemView.setOnClickListener {
 
-            val imageURL : String? = item.contactImage
-            val nombre : String? = item.contactName
-            val action = rutinas4Directions.actionRutinas4ToDatos(nombre!!, imageURL!!)
+            val dia : String? = item.DiasName
+
+            val action = rutinaseleccionadaDirections.actionRutinaseleccionadaToRutinas4(dia!!)
             it.findNavController().navigate(action)
             //Toast.makeText(ge,contactos.get(position).contactName, Toast.LENGTH_LONG).show()
         }
@@ -66,14 +66,14 @@ class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
 
 
     override fun getItemCount(): Int {
-        return contactos.size
+        return dias.size
     }
 
 
 
 
 
-    inner class ViewHolder(val binding: CardViewBinding ): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: CardView2Binding ): RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
             binding.cardViewAnimal.setOnClickListener{
