@@ -195,7 +195,7 @@ class MainApp : AppCompatActivity()  {
 
         }
 
-        //binding.drawerLayout.close()
+        binding.drawerLayout.close()
 
 
     }
