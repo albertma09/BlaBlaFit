@@ -133,7 +133,14 @@
         android:id="@+id/mapsFragment"
         android:name="com.example.blablafit.fragmentsApp.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" /><action android:id="@+id/action_global_mapsFragment" app:destination="@id/mapsFragment"/>
+        tools:layout="@layout/fragment_maps" >
+        <argument
+            android:name="latitud"
+            app:argType="string" />
+        <argument
+            android:name="longitud"
+            app:argType="string" />
+    </fragment><action android:id="@+id/action_global_mapsFragment" app:destination="@id/mapsFragment"/>
 
 
 </navigation>

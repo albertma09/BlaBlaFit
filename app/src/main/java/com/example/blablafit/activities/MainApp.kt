@@ -1,7 +1,6 @@
 package com.example.blablafit.activities
 
 import android.Manifest
-import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -10,7 +9,6 @@ import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
@@ -23,21 +21,19 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.blablafit.*
+import com.example.blablafit.R
 import com.example.blablafit.databinding.ActivityMainAppBinding
 import com.example.blablafit.fragmentsApp.*
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import java.security.Permissions
+import com.google.android.gms.location.*
 
 
-class MainApp : AppCompatActivity() {
+class MainApp : AppCompatActivity()  {
     lateinit var binding: ActivityMainAppBinding
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var pBar: ProgressBar
@@ -45,20 +41,36 @@ class MainApp : AppCompatActivity() {
     lateinit var navController: NavController
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val fragmentManager = supportFragmentManager
-
+    var latitude = 0;
+    var longitude = 0;
     var progres: Int = 0
     lateinit var fragment: Fragment
-    private var tvLatitude: String = "0"
-    private var tvLongitude: String = "0"
+    private lateinit var tvLatitude: String
+    private lateinit var tvLongitude: String
+    private lateinit var locationCallback: LocationCallback
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var locationManager: LocationManager = getSystemService(LOCATION_SERVICE) as LocationManager
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        locationCallback = object : LocationCallback() {
+            override fun onLocationResult(p0: LocationResult) {
+
+                for (location in p0.locations){
+                    getCurrentLocation()
+                    imprimirUbicacion()
+                }
+
+
+            }
+
+        }
+
+
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
         toggle =
@@ -68,6 +80,8 @@ class MainApp : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        //requestPermission()
+        //getCurrentLocation()
         binding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
 
@@ -131,6 +145,9 @@ class MainApp : AppCompatActivity() {
 
 
     }
+    fun imprimirUbicacion(){
+        Toast.makeText(this,tvLongitude,Toast.LENGTH_SHORT).show()
+    }
 
     fun clicked(view: View) {
         Log.i("Test: ", "Ha entrado")
@@ -142,11 +159,14 @@ class MainApp : AppCompatActivity() {
             R.id.inicioMenu -> Navigation.findNavController(binding.navHostFragment)
                 .navigate(R.id.action_global_principal)
             R.id.mapa -> {
-                Navigation.findNavController(binding.navHostFragment)
-                    .navigate(R.id.action_global_mapsFragment)
+                val intent = Intent(this, Maps::class.java)
+                startActivity(intent)
+                //Toast.makeText(applicationContext, "Longitud: "+tvLongitude, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(applicationContext, "Latitud: "+tvLatitude, Toast.LENGTH_SHORT).show()
+                //Navigation.findNavController(binding.navHostFragment).navigate(R.id.action_global_mapsFragment)
+               // (binding.navHostFragment).findNavController().navigate(action)
 
 
-                requestPermission()
 
 
                 //locationManager.
@@ -173,8 +193,17 @@ class MainApp : AppCompatActivity() {
 
         }
 
-        binding.drawerLayout.close()
+        //binding.drawerLayout.close()
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+       // if (requestingLocationUpdates) startLocationUpdates()
+    }
+
+    private fun startLocationUpdates() {
 
     }
 
@@ -192,15 +221,21 @@ class MainApp : AppCompatActivity() {
             }
 
             if (isLocationEnabled()) {
+
+
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener(this) { task ->
                     val location: Location? = task.result
                     if (location == null) {
                         Toast.makeText(applicationContext, "Null Received", Toast.LENGTH_SHORT)
                             .show()
                     } else {
+                        /*fusedLocationProviderClient.requestLocationUpdates(LocationRequest.Builder.IMPLICIT_MIN_UPDATE_INTERVAL,
+                            locationCallback,
+                            Looper.getMainLooper())*/
                         tvLatitude = location.latitude.toString()
                         tvLongitude = location.longitude.toString()
-                        Toast.makeText(applicationContext, "Get success", Toast.LENGTH_SHORT).show()
+                        //fusedLocationProviderClient.removeLocationUpdates()
+                        //Toast.makeText(applicationContext, tvLongitude, Toast.LENGTH_SHORT).show()
 
 
                     }
@@ -241,6 +276,7 @@ class MainApp : AppCompatActivity() {
                 android.Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
+
             return true
         }
         return false
@@ -256,7 +292,7 @@ class MainApp : AppCompatActivity() {
         if (requestCode == PERMISSION_REQUEST_ACCESS_LOCATION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(applicationContext, "Granted", Toast.LENGTH_SHORT)
-                getCurrentLocation()
+
                 //abrirMapa(tvLatitude.toDouble(), tvLongitude.toDouble(), "nutricionista")
             } else {
                 Toast.makeText(applicationContext, "Denied", Toast.LENGTH_SHORT)
@@ -264,6 +300,8 @@ class MainApp : AppCompatActivity() {
             }
         }
     }
+
+
 
     private fun isLocationEnabled(): Boolean {
         val locationManager: LocationManager =
@@ -298,6 +336,8 @@ class MainApp : AppCompatActivity() {
         mapIntent.setPackage("com.google.android.apps.maps")
         startActivity(mapIntent)
     }
+
+
 
     private fun enviarMensaje() {
         val sendIntent = Intent().apply {
