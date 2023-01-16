@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import coil.api.load
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
 import com.example.blablafit.R
 import com.example.blablafit.databinding.FragmentDatosFisicosBinding
 import com.example.blablafit.databinding.FragmentPerfilPersonal2Binding
@@ -66,6 +69,14 @@ class PerfilPersonal2 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.FotoPerfil.setOnClickListener { afegirImatge() }
+        auth = Firebase.auth
+        val storage = FirebaseStorage.getInstance()
+        val reference = storage.getReference("usersImages/${auth.uid.toString()}/perfil")
+
+        reference.downloadUrl.addOnSuccessListener {
+            binding.FotoPerfil.load(it)
+
+        }
 
     }
 
@@ -74,10 +85,14 @@ class PerfilPersonal2 : Fragment() {
         val sRef: StorageReference =
             storage.reference.child("usersImages/${auth.uid.toString()}/perfil")
         sRef.putFile(fileUri)
+
     }
 
    fun afegirImatge(){
     getContent.launch("image/*")
+
+
+
     }
     companion object {
         /**
