@@ -111,8 +111,8 @@ class rutinas4 : Fragment() {
                                 rutinas.add(
                                     ContactoModel(
                                         "${obj2["nombre"].toString()}",
-                                        "${obj2["series"].toString()}",
-                                        "${obj2["repeticiones"].toString()}",
+                                        "Series: ${obj2["series"].toString()}",
+                                        "Repeticiones: ${obj2["repeticiones"].toString()}",
                                         "$it"
                                     )
                                 )
