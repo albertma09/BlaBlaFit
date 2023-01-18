@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import coil.api.load
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
 import com.example.blablafit.R
 import com.example.blablafit.databinding.FragmentDatosFisicosBinding
 import com.example.blablafit.databinding.FragmentPerfilPersonal2Binding
@@ -19,6 +22,8 @@ import com.example.blablafit.databinding.FragmentRutinas4Binding
 import com.google.android.gms.common.internal.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -41,6 +46,7 @@ class PerfilPersonal2 : Fragment() {
     private lateinit var _binding : FragmentPerfilPersonal2Binding
     lateinit var getContent : ActivityResultLauncher<String>
     private val binding get() = _binding!!
+    private val db = Firebase.firestore
     private var storage = FirebaseStorage.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +72,17 @@ class PerfilPersonal2 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.FotoPerfil.setOnClickListener { afegirImatge() }
+        auth = Firebase.auth
+        val storage = FirebaseStorage.getInstance()
+        val reference = storage.getReference("usersImages/${auth.uid.toString()}/perfil")
+        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
+            binding.nombre.text =  it.get("nombre_usuario").toString()
+            binding.correo.text =  it.get("email").toString()
+        }
+        reference.downloadUrl.addOnSuccessListener {
+            binding.FotoPerfil.load(it)
+            println(it)
+        }
 
     }
 
@@ -74,10 +91,15 @@ class PerfilPersonal2 : Fragment() {
         val sRef: StorageReference =
             storage.reference.child("usersImages/${auth.uid.toString()}/perfil")
         sRef.putFile(fileUri)
+
+
     }
 
    fun afegirImatge(){
     getContent.launch("image/*")
+
+
+
     }
     companion object {
         /**

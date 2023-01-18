@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
@@ -15,6 +16,7 @@ import android.provider.Settings
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -26,12 +28,20 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import coil.api.load
+import com.bumptech.glide.Glide
 import com.example.blablafit.*
 import com.example.blablafit.R
 import com.example.blablafit.databinding.ActivityMainAppBinding
 import com.example.blablafit.databinding.ProgressBar2MenuBinding
 import com.example.blablafit.fragmentsApp.*
 import com.google.android.gms.location.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 
 
 class MainApp : AppCompatActivity()  {
@@ -50,12 +60,25 @@ class MainApp : AppCompatActivity()  {
     private lateinit var tvLatitude: String
     private lateinit var tvLongitude: String
     private lateinit var locationCallback: LocationCallback
+    private lateinit var auth: FirebaseAuth
+    private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        auth = Firebase.auth
+        val storage = FirebaseStorage.getInstance()
+        val reference = storage.getReference("usersImages/${auth.uid.toString()}/perfil")
+       // val imageView = findViewById<ImageView>(R.id.imageView8)
 
+        reference.downloadUrl.addOnSuccessListener {
+            binding.navView.findViewById<ImageView>(R.id.imageView8).load(it)
+
+        }
+        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
+            println(it.get("lista_peso").toString())
+        }
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
@@ -136,14 +159,7 @@ class MainApp : AppCompatActivity()  {
         }
 
 
-        //fragment = Principal()
 
-
-        //var transaction = fragmentManager.beginTransaction()
-        //transaction.replace(R.id.fragmentContainerView, Principal())
-        //transaction.addToBackStack(null)
-        //transaction.commit()
-        //var profile = findViewById<ImageView>(R.id.imageView8)
 
 
     }
@@ -182,8 +198,10 @@ class MainApp : AppCompatActivity()  {
                 builder.setMessage("Quieres salir?")
                 builder.setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, id ->
                     run {
+                        FirebaseAuth.getInstance().signOut()
                         val intent = Intent(this, MainActivityInicio::class.java)
                         startActivity(intent)
+
                     }
                 })
 

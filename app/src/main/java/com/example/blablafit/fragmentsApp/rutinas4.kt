@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 
 
 private const val ARG_PARAM1 = "param1"
@@ -40,6 +41,7 @@ class rutinas4 : Fragment() {
     private val binding get() = _binding!!
     private val myAdapter: ContactosAdapter = ContactosAdapter()
     val db = Firebase.firestore
+    private var storage = FirebaseStorage.getInstance()
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,8 +92,8 @@ class rutinas4 : Fragment() {
         val dia = args.dia
 
 
-        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
-            var documento = it.get("rutina") as String
+        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener { user->
+            var documento = user.get("rutina") as String
             println(documento)
             db.collection("Rutinas").document(documento).collection("rutina").document(dia).get()
                 .addOnSuccessListener {
@@ -101,15 +103,21 @@ class rutinas4 : Fragment() {
                     var cuenta= 0
                     while(cuenta<tamaño!!){
                         val obj2 = dato!![cuenta] as HashMap<*,ContactoModel>
+                        val reference = storage.getReference("ejercicios/${user.get("lugar")}/${obj2["img"]}")
+                            reference.downloadUrl.addOnSuccessListener {
+                            println("$cuenta      $it")
+                                rutinas.add(
+                                    ContactoModel(
+                                        "${obj2["nombre"].toString()}",
+                                        "${obj2["series"].toString()}",
+                                        "${obj2["repeticiones"].toString()}",
+                                        "$it"
+                                    )
+                                )
+                        }
 
-                        rutinas.add(
-                            ContactoModel(
-                                "${obj2["nombre"].toString()}",
-                                "${obj2["series"].toString()}",
-                                "${obj2["repeticiones"].toString()}",
-                                "https://i.pinimg.com/736x/8a/20/ac/8a20acbac58378c9e293719b523c45b7.jpg"
-                            )
-                        )
+
+
                         cuenta++
                     }
 
