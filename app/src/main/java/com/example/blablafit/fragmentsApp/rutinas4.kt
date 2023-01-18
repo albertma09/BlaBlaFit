@@ -1,5 +1,6 @@
 package com.example.blablafit.fragmentsApp
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.Handler
@@ -87,6 +88,7 @@ class rutinas4 : Fragment() {
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun getAnimals(): MutableList<ContactoModel> {
         val rutinas: MutableList<ContactoModel> = arrayListOf()
         val dia = args.dia
