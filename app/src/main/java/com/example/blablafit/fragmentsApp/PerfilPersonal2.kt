@@ -22,6 +22,8 @@ import com.example.blablafit.databinding.FragmentRutinas4Binding
 import com.google.android.gms.common.internal.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -44,6 +46,7 @@ class PerfilPersonal2 : Fragment() {
     private lateinit var _binding : FragmentPerfilPersonal2Binding
     lateinit var getContent : ActivityResultLauncher<String>
     private val binding get() = _binding!!
+    private val db = Firebase.firestore
     private var storage = FirebaseStorage.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,10 +75,13 @@ class PerfilPersonal2 : Fragment() {
         auth = Firebase.auth
         val storage = FirebaseStorage.getInstance()
         val reference = storage.getReference("usersImages/${auth.uid.toString()}/perfil")
-
+        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
+            binding.nombre.text =  it.get("nombre_usuario").toString()
+            binding.correo.text =  it.get("email").toString()
+        }
         reference.downloadUrl.addOnSuccessListener {
             binding.FotoPerfil.load(it)
-
+            println(it)
         }
 
     }
@@ -85,6 +91,7 @@ class PerfilPersonal2 : Fragment() {
         val sRef: StorageReference =
             storage.reference.child("usersImages/${auth.uid.toString()}/perfil")
         sRef.putFile(fileUri)
+
 
     }
 

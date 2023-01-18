@@ -38,6 +38,7 @@ import com.example.blablafit.fragmentsApp.*
 import com.google.android.gms.location.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
@@ -60,7 +61,7 @@ class MainApp : AppCompatActivity()  {
     private lateinit var tvLongitude: String
     private lateinit var locationCallback: LocationCallback
     private lateinit var auth: FirebaseAuth
-
+    private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +76,9 @@ class MainApp : AppCompatActivity()  {
             binding.navView.findViewById<ImageView>(R.id.imageView8).load(it)
 
         }
-
+        db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
+            println(it.get("lista_peso").toString())
+        }
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
