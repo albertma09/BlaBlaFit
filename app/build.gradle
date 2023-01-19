@@ -9,7 +9,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.blablafit"
+        applicationId "com.copernic.blablafit"
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -36,7 +36,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'com.example.blablafit'
+    namespace 'com.copernic.blablafit'
 }
 
 dependencies {
