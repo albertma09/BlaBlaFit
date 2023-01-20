@@ -65,7 +65,7 @@ class rutinas4 : Fragment() {
             binding.shimmerLayout.stopShimmer()
             binding.recycler.visibility = View.VISIBLE
             binding.shimmerLayout.visibility = View.GONE
-        }, 5000)
+        }, 1000)
         setupRecyclerView()
         val root = binding.root
 
