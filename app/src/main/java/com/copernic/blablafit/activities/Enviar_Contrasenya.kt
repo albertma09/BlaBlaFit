@@ -29,6 +29,12 @@ class Enviar_Contrasenya : AppCompatActivity() {
         bin.recuperar.setOnClickListener {
             recuperar()
         }
+
+        bin.textView2.setOnClickListener{
+            intent = Intent(this, Registro::class.java)
+            startActivity(intent)
+
+        }
         //bin.editTextTextPersonName.setOnClickListener { recuperar() }
 
     }
@@ -47,6 +53,8 @@ class Enviar_Contrasenya : AppCompatActivity() {
 
         }
     }
+
+
 
 
     }
