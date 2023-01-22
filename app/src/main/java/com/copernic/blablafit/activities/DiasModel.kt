@@ -1,6 +1,7 @@
 package com.copernic.blablafit.activities
 
-data class DiasModel(val dia:String){
+data class DiasModel(val dia: String) {
+    //Atributos dias
     var DiasName: String? = null
 
 

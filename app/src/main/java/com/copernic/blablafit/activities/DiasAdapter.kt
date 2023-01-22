@@ -17,14 +17,15 @@ import com.squareup.picasso.Picasso
 
 class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
     var dias: MutableList<DiasModel> = ArrayList()
-    //lateinit var context: Context
 
 
+    //Constructor
     fun DiasAdapter(dias: MutableList<DiasModel>) {
         this.dias = dias
-        //this.context = contxt
+
     }
 
+    //Inflar diseño
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ViewHolder(
@@ -34,12 +35,12 @@ class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
         )
     }
 
-
+    //Ligar datos
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         with(holder) {
             holder.itemView.setOnClickListener(){
-                println("GGGG")
+
             }
             with(dias.get(position)) {
 
@@ -50,22 +51,18 @@ class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
 
         }
 
-        val item = dias.get(position)
-
-
-
-
+        val item = dias[position]
         holder.itemView.setOnClickListener {
 
             val dia : String? = item.DiasName
 
             val action = rutinaseleccionadaDirections.actionRutinaseleccionadaToRutinas4(dia!!)
             it.findNavController().navigate(action)
-            //Toast.makeText(ge,contactos.get(position).contactName, Toast.LENGTH_LONG).show()
+
         }
     }
 
-
+    //devolver cantidad de elementos
     override fun getItemCount(): Int {
         return dias.size
     }
@@ -73,12 +70,12 @@ class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
 
 
 
-
+    //clase anidada
     inner class ViewHolder(val binding: CardView2Binding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
             binding.cardViewAnimal.setOnClickListener{
-                println("Hola")
+
             }
         }
 
