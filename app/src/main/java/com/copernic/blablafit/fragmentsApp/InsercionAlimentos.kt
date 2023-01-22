@@ -47,6 +47,12 @@ class InsercionAlimentos : Fragment() {
     private val binding get() = _binding!!
     private val db = Firebase.firestore
     private val alimentacion = db.collection("Alimentacion")
+    /**
+
+    Inicializa el escáner QR y establece las configuraciones deseadas.
+    Se establecen los formatos de código de barras deseados, la orientación del dispositivo, el texto de la pantalla de promoción, el uso de la linterna y el sonido al escanear.
+     */
+
     private fun initScanner() {
         val integrator = IntentIntegrator.forSupportFragment(this)
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
@@ -69,7 +75,15 @@ class InsercionAlimentos : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    /**
 
+    Infla el diseño para este fragmento y establece un oyente de clic en un botón de la cámara.
+    Al hacer clic, llama a una función para inicializar el escáner QR.
+    @param inflater El LayoutInflater utilizado para inflar el diseño del fragmento.
+    @param container El contenedor opcional al que se agregará el fragmento.
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+    @return La vista del fragmento inflado.
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -87,7 +101,18 @@ class InsercionAlimentos : Fragment() {
         //return inflater.inflate(R.layout.fragment_insercion_alimentos, container, false)
     }
 
+    /**
 
+    Se conecta a la base de datos de Firebase y obtiene una lista de alimentos.
+
+    Establece un adaptador para un spinner con la lista de alimentos y establece un oyente de clic en un botón "guardar".
+
+    Al hacer clic, se valida que la cantidad ingresada sea numérica y se agrega la información de alimento seleccionado y cantidad a la base de datos de Firebase.
+
+    @param view La vista del fragmento que ha sido creada.
+
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         db.collection("Alimentacion").get().addOnSuccessListener { documents ->
@@ -169,7 +194,18 @@ class InsercionAlimentos : Fragment() {
             Log.w(ContentValues.TAG, "Error getting documents: ", exception)
         }
     }
+    /**
 
+    Maneja el resultado de la actividad del escáner QR. Si el resultado es válido, muestra un mensaje Toast con el valor escaneado, y llama a una función para obtener un valor de cantidad.
+
+    Luego, separa la información del código QR en un mapa de alimentos, y agrega esa información a la base de datos de Firebase.
+
+    @param requestCode El código de solicitud utilizado para iniciar la actividad de escaneo.
+
+    @param resultCode El código de resultado devuelto por la actividad de escaneo.
+
+    @param data El intent opcional que contiene los datos devueltos por la actividad de escaneo.
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         var qty = 0
@@ -197,7 +233,14 @@ class InsercionAlimentos : Fragment() {
         alimentacion.document(producto).set(alimentos)
 
     }
+    /**
 
+    Obtiene un valor de cantidad de un cuadro de diálogo de alerta.
+
+    Muestra un cuadro de diálogo de alerta que pide al usuario que ingrese una cantidad, y devuelve ese valor como un entero.
+
+    @return la cantidad ingresada por el usuario como un entero.
+     */
     fun inputValue(): Int {
         var cantidad = 0
         val input = EditText(activity)

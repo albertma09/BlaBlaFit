@@ -51,7 +51,13 @@ class Datos : Fragment() {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_datos, container, false)
     }
+    /**
 
+    Método que se ejecuta al crear la vista del fragmento.
+    Obtiene los argumentos enviados desde la actividad, y los asigna a los elementos de la vista.
+    @param view La vista del fragmento
+    @param savedInstanceState El estado guardado de la instancia
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val tv: TextView = view.findViewById(R.id.textViu)
         val nombre = args.nombre

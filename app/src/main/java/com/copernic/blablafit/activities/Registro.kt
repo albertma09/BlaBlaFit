@@ -40,7 +40,16 @@ class Registro : AppCompatActivity() {
         }
 
     }
+    /**
 
+    Método que se encarga de registrar un nuevo usuario en la aplicación.
+
+    Recoge los datos del nombre de usuario, correo electrónico y contraseña introducidos por el usuario.
+
+    Verifica que los datos introducidos son correctos y no están vacíos, y si es así, se registra el usuario en Firebase y en la base de datos de la aplicación.
+
+    Si el usuario ya existe o faltan datos por introducir, se muestra un mensaje de error al usuario.
+     */
     private fun registro() {
         val user = bin.username.text.toString()
         val mail = bin.mail.text.toString()
@@ -78,7 +87,12 @@ class Registro : AppCompatActivity() {
 
 
 
+    /**
 
+    Método encargado de registrar un nuevo usuario en la base de datos de Firebase
+
+    Crea un HashMap con los datos necesarios para registrar al usuario y los agrega a la colección "usuarios" en Firebase
+     */
     private fun registrarUserBase(){
         val user = bin.username.text.toString()
         val mail = bin.mail.text.toString()
@@ -103,7 +117,11 @@ class Registro : AppCompatActivity() {
 
 
     }
+    /**
 
+    Método encargado de iniciar sesión en la aplicación
+    Crea un Intent para navegar al MainActivityInicio y lo inicia
+     */
     private fun login() {
         val intent = Intent(this, MainActivityInicio::class.java)
         startActivity(intent)

@@ -40,7 +40,15 @@ class Rutinas2 : Fragment() {
         auth = Firebase.auth
 
     }
+    /**
 
+    Infla el diseño para este fragmento y establece los oyentes de clic para los botones.
+    Al hacer clic, actualiza la "entrenoSemanal" en la base de datos de "usuarios" y navega a otro fragmento.
+    @param inflater El LayoutInflater utilizado para inflar el diseño del fragmento.
+    @param container El contenedor opcional al que se agregará el fragmento.
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+    @return La vista del fragmento inflado.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
