@@ -58,7 +58,15 @@ class PerfilPersonal2 : Fragment() {
             }
         }
     }
+    /**
 
+    Infla el diseño para este fragmento y establece un oyente de clic para una imagen de perfil.
+    Al hacer clic, se llama a una función para agregar una imagen. También se carga información de la base de datos de Firebase y se muestra en la vista.
+    @param inflater El LayoutInflater utilizado para inflar el diseño del fragmento.
+    @param container El contenedor opcional al que se agregará el fragmento.
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+    @return La vista del fragmento inflado.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -68,7 +76,12 @@ class PerfilPersonal2 : Fragment() {
         // Inflate the layout for this fragment
         return root
     }
+    /**
 
+    Establece un oyente de clic para la imagen de perfil y carga información de la base de datos de Firebase en la vista.
+    @param view La vista del fragmento que ha sido creada.
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.FotoPerfil.setOnClickListener { afegirImatge() }
@@ -85,7 +98,11 @@ class PerfilPersonal2 : Fragment() {
         }
 
     }
+    /**
 
+    Maneja la URI de una imagen seleccionada y la carga en Firebase Storage.
+    @param fileUri La URI de la imagen seleccionada.
+     */
     fun managePhotoUri(fileUri : Uri){
         auth = Firebase.auth
         val sRef: StorageReference =
@@ -94,7 +111,10 @@ class PerfilPersonal2 : Fragment() {
 
 
     }
+/**
 
+Inicia la selección de una imagen desde el almacenamiento del dispositivo.
+*/
    fun afegirImatge(){
     getContent.launch("image/*")
 

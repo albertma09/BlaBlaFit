@@ -63,23 +63,36 @@ class DadesPersonals : Fragment() {
 
 
 
-
+        //actualiza la progress bar
         _binding.agua.setOnClickListener { updateBar() }
         val view = binding.root
         return view
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_dades_personals, container, false)
     }
+    /**
 
+    Método que se ejecuta al crear la vista.
+
+    Obtiene la fecha actual y busca en la base de datos de Firebase los alimentos del usuario en esa fecha.
+
+    Luego, recupera la información nutricional de cada alimento y la utiliza para actualizar un gráfico de tarta.
+
+    @param view La vista actual.
+
+    @param savedInstanceState El estado guardado de la aplicación.
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //Obtiene la fecha actual en el formato especificado
         val datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMddyyyy"))
         auth = Firebase.auth
-
+//busca en la base de datos la información de los alimentos del usuario en la fecha actual
             db.collection("usuarios").document(auth.uid.toString()).collection("alimentos").document(datetime).get()
                 .addOnSuccessListener {
                     var alimento:ArrayList<Alimentacion> = ArrayList()
                     try{
+                        //obtiene la lista de alimentos y su cantidad
                     alimento = it.get("alimentos") as ArrayList<Alimentacion>
                         var tamaño = alimento.size
                         var cuenta= 0
@@ -144,12 +157,13 @@ class DadesPersonals : Fragment() {
 
 
 
+    /**
 
+    Función que actualiza la barra de progreso.
+
+    Suma 10 al valor actual de la barra de progreso. Si el valor supera el máximo, se establece en 0.
+     */
     fun updateBar(){
-
-
-
-
         val i : ProgressBar = binding.indicador
 
         progres = i.progress + 10

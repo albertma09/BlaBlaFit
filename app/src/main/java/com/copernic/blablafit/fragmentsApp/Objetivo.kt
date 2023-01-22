@@ -39,7 +39,15 @@ class Objetivo : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    /**
 
+    Infla el diseño para este fragmento y establece un oyente de clic en un botón.
+    Al hacer clic, llama a una función para agregar un objetivo en la base de datos de Firebase.
+    @param inflater El LayoutInflater utilizado para inflar el diseño del fragmento.
+    @param container El contenedor opcional al que se agregará el fragmento.
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+    @return La vista del fragmento inflado.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,12 +58,21 @@ class Objetivo : Fragment() {
         val view = binding.root
         return view
     }
+    /**
 
+    Establece un oyente de clic en un botón y se conecta a la base de datos de Firebase.
+    @param view La vista del fragmento que ha sido creada.
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         db = Firebase.firestore
         binding.recuperar.setOnClickListener { afegirDades() }
     }
+    /**
+
+    Agrega un objetivo especificado en un campo de texto a la base de datos de Firebase.
+     */
     private fun afegirDades(){
         val objetivo = binding.textInputEditText2.text.toString()
         auth = Firebase.auth

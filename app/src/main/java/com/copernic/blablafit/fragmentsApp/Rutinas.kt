@@ -33,7 +33,15 @@ class Rutinas : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    /**
 
+    Infla el diseño para este fragmento y establece los oyentes de clic para los botones.
+    Al hacer clic, navega a otro fragmento.
+    @param inflater El LayoutInflater utilizado para inflar el diseño del fragmento.
+    @param container El contenedor opcional al que se agregará el fragmento.
+    @param savedInstanceState El estado opcional del fragmento guardado previamente.
+    @return La vista del fragmento inflado.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
