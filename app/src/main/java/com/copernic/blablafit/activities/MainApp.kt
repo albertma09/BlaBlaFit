@@ -1,19 +1,13 @@
 package com.copernic.blablafit.activities
 
-import android.Manifest
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.location.Location
-import android.location.LocationListener
 import android.location.LocationManager
-import android.net.Uri
 import android.os.Bundle
-import android.os.Looper
 import android.provider.Settings
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
@@ -26,22 +20,19 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import coil.api.load
-import com.bumptech.glide.Glide
-import com.copernic.blablafit.*
 import com.copernic.blablafit.R
 import com.copernic.blablafit.databinding.ActivityMainAppBinding
-import com.copernic.blablafit.databinding.ProgressBar2MenuBinding
-import com.copernic.blablafit.fragmentsApp.*
-import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.squareup.picasso.Picasso
 
 
 class MainApp : AppCompatActivity()  {
@@ -70,7 +61,7 @@ class MainApp : AppCompatActivity()  {
         auth = Firebase.auth
         val storage = FirebaseStorage.getInstance()
         val reference = storage.getReference("usersImages/${auth.uid.toString()}/perfil")
-       // val imageView = findViewById<ImageView>(R.id.imageView8)
+
 
         reference.downloadUrl.addOnSuccessListener {
             binding.navView.findViewById<ImageView>(R.id.imageView8).load(it)
@@ -105,13 +96,11 @@ class MainApp : AppCompatActivity()  {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        //requestPermission()
-        //getCurrentLocation()
         binding.navView.setNavigationItemSelectedListener {
+
             when (it.itemId) {
 
                 R.id.controlSemanal -> {
-                    //fragment = PerfilPersonal()
                     Navigation.findNavController(binding.navHostFragment)
                         .navigate(R.id.action_global_perfilPersonal2)
 
@@ -168,7 +157,6 @@ class MainApp : AppCompatActivity()  {
     }
 
     fun clicked(view: View) {
-        Log.i("Test: ", "Ha entrado")
         when (view.id) {
             R.id.datos_fisicos -> Navigation.findNavController(binding.navHostFragment)
                 .navigate(R.id.action_global_datos_fiicos)
@@ -179,17 +167,6 @@ class MainApp : AppCompatActivity()  {
             R.id.mapa -> {
                 val intent = Intent(this, Maps::class.java)
                 startActivity(intent)
-                //Toast.makeText(applicationContext, "Longitud: "+tvLongitude, Toast.LENGTH_SHORT).show()
-                //Toast.makeText(applicationContext, "Latitud: "+tvLatitude, Toast.LENGTH_SHORT).show()
-                //Navigation.findNavController(binding.navHostFragment).navigate(R.id.action_global_mapsFragment)
-               // (binding.navHostFragment).findNavController().navigate(action)
-
-
-
-
-                //locationManager.
-                //getLocation()
-                //Toast.makeText(this,getLocation(),Toast.LENGTH_SHORT).show()
 
             }
             R.id.CerrarMenu -> {
@@ -218,15 +195,7 @@ class MainApp : AppCompatActivity()  {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-       // if (requestingLocationUpdates) startLocationUpdates()
-    }
-
-    private fun startLocationUpdates() {
-
-    }
-
+    //Obtener posicion actual
     private fun getCurrentLocation() {
         if (checkPermission()) {
             if (ActivityCompat.checkSelfPermission(
@@ -249,13 +218,8 @@ class MainApp : AppCompatActivity()  {
                         Toast.makeText(applicationContext, "Null Received", Toast.LENGTH_SHORT)
                             .show()
                     } else {
-                        /*fusedLocationProviderClient.requestLocationUpdates(LocationRequest.Builder.IMPLICIT_MIN_UPDATE_INTERVAL,
-                            locationCallback,
-                            Looper.getMainLooper())*/
                         tvLatitude = location.latitude.toString()
                         tvLongitude = location.longitude.toString()
-                        //fusedLocationProviderClient.removeLocationUpdates()
-                        //Toast.makeText(applicationContext, tvLongitude, Toast.LENGTH_SHORT).show()
 
 
                     }
@@ -276,6 +240,7 @@ class MainApp : AppCompatActivity()  {
         private const val PERMISSION_REQUEST_ACCESS_LOCATION = 1000
     }
 
+    //Solicitar permisos
     private fun requestPermission() {
         ActivityCompat.requestPermissions(
             this, arrayOf(
@@ -286,6 +251,7 @@ class MainApp : AppCompatActivity()  {
         )
     }
 
+    //Comprobar permisos
     private fun checkPermission(): Boolean {
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -302,18 +268,19 @@ class MainApp : AppCompatActivity()  {
         return false
     }
 
+    //Verificar la confirmacion del usuario
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        //val tvGpsLocation = findViewById(R.id.textView)
+
         if (requestCode == PERMISSION_REQUEST_ACCESS_LOCATION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(applicationContext, "Granted", Toast.LENGTH_SHORT)
 
-                //abrirMapa(tvLatitude.toDouble(), tvLongitude.toDouble(), "nutricionista")
+
             } else {
                 Toast.makeText(applicationContext, "Denied", Toast.LENGTH_SHORT)
 
@@ -322,7 +289,7 @@ class MainApp : AppCompatActivity()  {
     }
 
 
-
+    //Verificar que la geolocalizacion esté activada
     private fun isLocationEnabled(): Boolean {
         val locationManager: LocationManager =
             getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -332,46 +299,6 @@ class MainApp : AppCompatActivity()  {
     }
 
 
-//    override fun onBackPressed() {
-//
-//        val builder = AlertDialog.Builder(this)
-//        builder.setTitle("Cerrar sesion")
-//        builder.setMessage("Quieres salir?")
-//        builder.setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, id ->
-//            run {
-//                val intent = Intent(this, MainActivityInicio::class.java)
-//                startActivity(intent)
-//            }
-//        })
-//
-//        builder.setNegativeButton("Cancelar", null)
-//        val dial: AlertDialog = builder.create()
-//        dial.show()
-//    }
-
-
-    private fun abrirMapa(latitud: Double, longitud: Double, filtro: String = "nutricionista") {
-        val gmmIntentUri = Uri.parse("geo:${latitud}, ${longitud}?q=${filtro}")
-        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-        mapIntent.setPackage("com.google.android.apps.maps")
-        startActivity(mapIntent)
-    }
-
-
-
-    private fun enviarMensaje() {
-        val sendIntent = Intent().apply {
-            action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "Prueba de intent implicita")
-            type = "text/plain"
-        }
-
-
-        if (sendIntent.resolveActivity(packageManager) != null) {
-            startActivity(sendIntent)
-        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
             true
@@ -379,8 +306,4 @@ class MainApp : AppCompatActivity()  {
         return super.onOptionsItemSelected(item)
     }
 
-//    override fun onSupportNavigateUp(): Boolean {
-//        val navController = findNavController(R.id.nav_host_fragment_content_main)
-//        return navController.navigateUp() || super.onSupportNavigateUp()
-//    }
 }

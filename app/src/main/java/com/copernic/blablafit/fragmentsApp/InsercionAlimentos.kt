@@ -218,19 +218,20 @@ class InsercionAlimentos : Fragment() {
                     Toast.LENGTH_LONG
                 ).show()
                 qty = inputValue()
+                val alimentos = mutableMapOf<String, String>()
+                var contenido = result.contents.split("|")
+                var producto = contenido[0].split(":")[1]
+
+                for (i in 1 until contenido.size) {
+                    val key = contenido[i].split(":")[0]
+                    val value = contenido[i].split(":")[1]
+                    alimentos[key] = value
+
+                }
+                alimentacion.document(producto).set(alimentos)
             }
         }
-        val alimentos = mutableMapOf<String, String>()
-        var contenido = result.contents.split("|")
-        var producto = contenido[0].split(":")[1]
 
-        for (i in 1 until contenido.size) {
-            val key = contenido[i].split(":")[0]
-            val value = contenido[i].split(":")[1]
-            alimentos[key] = value
-
-        }
-        alimentacion.document(producto).set(alimentos)
 
     }
     /**

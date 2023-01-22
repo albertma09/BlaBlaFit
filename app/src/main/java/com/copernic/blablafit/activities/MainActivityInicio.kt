@@ -2,13 +2,13 @@ package com.copernic.blablafit.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.copernic.blablafit.R
-import com.google.firebase.auth.FirebaseAuth
 import com.copernic.blablafit.Utils.UtilsFunctions
 import com.copernic.blablafit.databinding.ActivityMainInicioBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -28,27 +28,26 @@ class MainActivityInicio : AppCompatActivity() {
         //Splash screen
         Thread.sleep(2000)
         setTheme(R.style.Theme_Blablafit)
-        super.onCreate(savedInstanceState)
 
+        super.onCreate(savedInstanceState)
         bin = ActivityMainInicioBinding.inflate(layoutInflater)
         setContentView(bin.root)
         supportActionBar!!.hide()
         bin.logoApp.animate().rotation(360f).setDuration(5000).start()
-        // Initialize Firebase Auth
-        auth = Firebase.auth
 
+        auth = Firebase.auth
         bin.iniciar.setOnClickListener {
             login()
         }
 
-
+        //Abrir ventana recuperar contraseña
         bin.recuperarPassword.setOnClickListener() {
             intent = Intent(this, Enviar_Contrasenya::class.java)
             startActivity(intent)
-            //intent = Intent(this, RecyclerViewRutinas::class.java)
-            //startActivity(intent)
+
         }
 
+        //Abrir ventana registro
         bin.registro.setOnClickListener() {
             intent = Intent(this, Registro::class.java)
             startActivity(intent)
@@ -80,7 +79,7 @@ class MainActivityInicio : AppCompatActivity() {
         }
     }
 
-
+    //Iniciar Sesion
     private fun login() {
 
         val mail = bin.usuario.text.toString()
@@ -88,21 +87,20 @@ class MainActivityInicio : AppCompatActivity() {
         val snackbar = bin.snackbar
 
 
-
+        //Verificar contraseña y password
         if (mail.isNotEmpty() && pass.isNotEmpty()) {
-            if (com.copernic.blablafit.Utils.UtilsFunctions.checkMail(mail, pass, snackbar)) {
+            if (UtilsFunctions.checkMail(mail, pass, snackbar)) {
                 auth.signInWithEmailAndPassword(mail, pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             intent = Intent(this, MainApp::class.java)
                             startActivity(intent)
-                            com.copernic.blablafit.Utils.UtilsFunctions.showAlertConnect(this)
-
+                            UtilsFunctions.showAlertConnect(this)
 
 
                         } else {
                             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-                            com.copernic.blablafit.Utils.UtilsFunctions.showAlert(this)
+                            UtilsFunctions.showAlert(this)
                         }
                     }
 

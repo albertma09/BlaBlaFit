@@ -12,11 +12,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class Enviar_Contrasenya : AppCompatActivity() {
-    private lateinit var email: EditText
-    private lateinit var btn_enviar_contrasena: Button
-    private lateinit var correo : String
-    private lateinit var auth: FirebaseAuth
+
     private lateinit var bin: ActivityEnviarContrasenyaBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,14 +23,22 @@ class Enviar_Contrasenya : AppCompatActivity() {
         setContentView(bin.root)
         supportActionBar!!.hide()
 
-
+        //Confirmar datos
         bin.recuperar.setOnClickListener {
             recuperar()
         }
-        //bin.editTextTextPersonName.setOnClickListener { recuperar() }
+
+        //Enviar a la pantalla recuperar contraseña
+        bin.textView2.setOnClickListener{
+            intent = Intent(this, Registro::class.java)
+            startActivity(intent)
+
+        }
+
 
     }
 
+    //Recuperar contraseña
     private fun recuperar(){
         val mail = bin.editTextTextPersonName.text.toString()
 
@@ -47,6 +53,8 @@ class Enviar_Contrasenya : AppCompatActivity() {
 
         }
     }
+
+
 
 
     }
