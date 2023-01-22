@@ -67,5 +67,7 @@
     <string name="inicio">inici</string>
     <string name="nombre">Nom</string>
     <string name="datosFisicos">Dades Físiques</string>
+    <string name="cantidad_gramos">quantitat(grams)</string>
+    <string name="dia">Dia</string>
 
 </resources>

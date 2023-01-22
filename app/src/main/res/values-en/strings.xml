@@ -67,4 +67,7 @@
     <string name="inicio">beginning</string>
     <string name="nombre">Name</string>
     <string name="datosFisicos">Physical data</string>
+    <string name="cantidad_gramos">qty(grams)</string>
+    <string name="dia">Day</string>
+
 </resources>
