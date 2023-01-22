@@ -17,7 +17,7 @@
     <string name="altura">Alçada (cm)</string>
     <string name="peso">Pes (Kg)</string>
     <string name="edad">Edat</string>
-    <string name="input_mail">Correu electrònic o usuari</string>
+    <string name="input_mail">Correu electrònic</string>
     <string name="recordar_password">Recordar contrasenya</string>
     <string name="sin_cuenta">No tens compte?Registrate</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
