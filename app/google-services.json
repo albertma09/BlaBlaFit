@@ -38,7 +38,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:850986812553:android:b5008409b8a9da25c7f258",
         "android_client_info": {
-          "package_name": "com.example.blablafit"
+          "package_name": "com.copernic.blablafit"
         }
       },
       "oauth_client": [

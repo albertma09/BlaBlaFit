@@ -6,7 +6,7 @@
     app:startDestination="@id/principal">
     <fragment
         android:id="@+id/principal"
-        android:name="com.example.blablafit.fragmentsApp.Principal"
+        android:name="com.copernic.blablafit.fragmentsApp.Principal"
         android:label="fragment_principal"
         tools:layout="@layout/fragment_principal" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/rutinas"
-        android:name="com.example.blablafit.fragmentsApp.Rutinas"
+        android:name="com.copernic.blablafit.fragmentsApp.Rutinas"
         android:label="fragment_rutinas"
         tools:layout="@layout/fragment_rutinas" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/rutinas2"
-        android:name="com.example.blablafit.fragmentsApp.Rutinas2"
+        android:name="com.copernic.blablafit.fragmentsApp.Rutinas2"
         android:label="fragment_rutinas2"
         tools:layout="@layout/fragment_rutinas2" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/rutinas3"
-        android:name="com.example.blablafit.fragmentsApp.Rutinas3"
+        android:name="com.copernic.blablafit.fragmentsApp.Rutinas3"
         android:label="fragment_rutinas3"
         tools:layout="@layout/fragment_rutinas3" >
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/rutinas4"
-        android:name="com.example.blablafit.fragmentsApp.rutinas4"
+        android:name="com.copernic.blablafit.fragmentsApp.rutinas4"
         android:label="fragment_rutinas4"
         tools:layout="@layout/fragment_rutinas4" >
         <action
@@ -68,27 +68,27 @@
     </fragment>
     <fragment
         android:id="@+id/dietas"
-        android:name="com.example.blablafit.fragmentsApp.Dietas"
+        android:name="com.copernic.blablafit.fragmentsApp.Dietas"
         android:label="fragment_dietas"
         tools:layout="@layout/fragment_dietas" />
     <fragment
         android:id="@+id/insercionAlimentos"
-        android:name="com.example.blablafit.fragmentsApp.InsercionAlimentos"
+        android:name="com.copernic.blablafit.fragmentsApp.InsercionAlimentos"
         android:label="fragment_insercion_alimentos"
         tools:layout="@layout/fragment_insercion_alimentos" />
     <fragment
         android:id="@+id/dadesPersonals"
-        android:name="com.example.blablafit.fragmentsApp.DadesPersonals"
+        android:name="com.copernic.blablafit.fragmentsApp.DadesPersonals"
         android:label="fragment_dades_personals"
         tools:layout="@layout/fragment_dades_personals" />
     <fragment
         android:id="@+id/datos_fiicos"
-        android:name="com.example.blablafit.fragmentsApp.Datos_fisicos"
+        android:name="com.copernic.blablafit.fragmentsApp.Datos_fisicos"
         android:label="fragment_datos_fisicos"
         tools:layout="@layout/fragment_datos_fisicos" />
     <fragment
         android:id="@+id/menuLateral"
-        android:name="com.example.blablafit.fragmentsApp.Principal"
+        android:name="com.copernic.blablafit.fragmentsApp.Principal"
         android:label="fragment_menu_lateral"
         tools:layout="@layout/fragment_principal" >
         <action
@@ -106,12 +106,12 @@
     </fragment>
     <fragment
         android:id="@+id/objetivo"
-        android:name="com.example.blablafit.fragmentsApp.Objetivo"
+        android:name="com.copernic.blablafit.fragmentsApp.Objetivo"
         android:label="fragment_objetivo"
         tools:layout="@layout/fragment_objetivo" />
     <fragment
         android:id="@+id/perfilPersonal2"
-        android:name="com.example.blablafit.fragmentsApp.PerfilPersonal2"
+        android:name="com.copernic.blablafit.fragmentsApp.PerfilPersonal2"
         android:label="fragment_perfil_personal2"
         tools:layout="@layout/fragment_perfil_personal2" >
         <action
@@ -120,14 +120,14 @@
     </fragment>
     <fragment
         android:id="@+id/perfilPersonal3"
-        android:name="com.example.blablafit.fragmentsApp.PerfilPersonal"
+        android:name="com.copernic.blablafit.fragmentsApp.PerfilPersonal"
         android:label="fragment_perfil_personal"
         tools:layout="@layout/fragment_perfil_personal" />
     <action android:id="@+id/action_global_perfilPersonal2" app:destination="@+id/perfilPersonal2"/>
     <action android:id="@+id/action_global_dadesPersonals" app:destination="@+id/dadesPersonals"/>
     <fragment
         android:id="@+id/datos"
-        android:name="com.example.blablafit.fragmentsApp.Datos"
+        android:name="com.copernic.blablafit.fragmentsApp.Datos"
         android:label="fragment_datos"
         tools:layout="@layout/fragment_datos" >
         <argument
@@ -139,7 +139,7 @@
     </fragment><action android:id="@+id/action_global_objetivo" app:destination="@id/objetivo"/><action android:id="@+id/action_global_principal" app:destination="@id/principal"/><action android:id="@+id/action_global_datos_fiicos" app:destination="@id/datos_fiicos"/>
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="com.example.blablafit.fragmentsApp.MapsFragment"
+        android:name="com.copernic.blablafit.fragmentsApp.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" >
         <argument
@@ -151,7 +151,7 @@
     </fragment><action android:id="@+id/action_global_mapsFragment" app:destination="@id/mapsFragment"/>
     <fragment
         android:id="@+id/rutinaseleccionada"
-        android:name="com.example.blablafit.fragmentsApp.rutinaseleccionada"
+        android:name="com.copernic.blablafit.fragmentsApp.rutinaseleccionada"
         android:label="fragment_rutinaseleccionada"
         tools:layout="@layout/fragment_rutinaseleccionada" >
         <action
