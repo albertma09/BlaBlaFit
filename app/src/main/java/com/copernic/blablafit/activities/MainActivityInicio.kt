@@ -25,7 +25,7 @@ class MainActivityInicio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
-        //Splash screen
+        /**Splash screen*/
         Thread.sleep(2000)
         setTheme(R.style.Theme_Blablafit)
 
@@ -40,14 +40,14 @@ class MainActivityInicio : AppCompatActivity() {
             login()
         }
 
-        //Abrir ventana recuperar contraseña
+        /**Abrir ventana recuperar contraseña*/
         bin.recuperarPassword.setOnClickListener() {
             intent = Intent(this, Enviar_Contrasenya::class.java)
             startActivity(intent)
 
         }
 
-        //Abrir ventana registro
+        /**Abrir ventana registro*/
         bin.registro.setOnClickListener() {
             intent = Intent(this, Registro::class.java)
             startActivity(intent)
@@ -79,7 +79,7 @@ class MainActivityInicio : AppCompatActivity() {
         }
     }
 
-    //Iniciar Sesion
+    /**Iniciar Sesion*/
     private fun login() {
 
         val mail = bin.usuario.text.toString()
@@ -87,7 +87,7 @@ class MainActivityInicio : AppCompatActivity() {
         val snackbar = bin.snackbar
 
 
-        //Verificar contraseña y password
+        /**Verificar contraseña y password*/
         if (mail.isNotEmpty() && pass.isNotEmpty()) {
             if (UtilsFunctions.checkMail(mail, pass, snackbar)) {
                 auth.signInWithEmailAndPassword(mail, pass)

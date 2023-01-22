@@ -23,12 +23,12 @@ class Enviar_Contrasenya : AppCompatActivity() {
         setContentView(bin.root)
         supportActionBar!!.hide()
 
-        //Confirmar datos
+        /**Confirmar datos*/
         bin.recuperar.setOnClickListener {
             recuperar()
         }
 
-        //Enviar a la pantalla recuperar contraseña
+        /**Enviar a la pantalla recuperar contraseña*/
         bin.textView2.setOnClickListener{
             intent = Intent(this, Registro::class.java)
             startActivity(intent)
@@ -38,7 +38,7 @@ class Enviar_Contrasenya : AppCompatActivity() {
 
     }
 
-    //Recuperar contraseña
+    /**Recuperar contraseña*/
     private fun recuperar(){
         val mail = bin.editTextTextPersonName.text.toString()
 

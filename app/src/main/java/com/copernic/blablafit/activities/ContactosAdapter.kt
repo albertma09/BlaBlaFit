@@ -19,13 +19,13 @@ class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
     var contactos: MutableList<ContactoModel> = ArrayList()
 
 
-    //Constructor
+    /**Constructor*/
     fun ContactosAdapter(contactos: MutableList<ContactoModel>) {
         this.contactos = contactos
 
     }
 
-    //Inflar diseño
+    /**Inflar diseño*/
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ViewHolder(
@@ -35,7 +35,7 @@ class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
         )
     }
 
-    //Ligar datos
+    /**Ligar datos*/
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         with(holder) {
@@ -64,12 +64,12 @@ class ContactosAdapter : RecyclerView.Adapter<ContactosAdapter.ViewHolder>() {
             //Toast.makeText(ge,contactos.get(position).contactName, Toast.LENGTH_LONG).show()
         }
     }
-    //Devolver numero de elementos
+    /**Devolver numero de elementos*/
     override fun getItemCount(): Int {
         return contactos.size
     }
 
-    //clase anidada
+    /**clase anidada*/
     inner class ViewHolder(val binding: CardViewBinding ): RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {

@@ -19,13 +19,13 @@ class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
     var dias: MutableList<DiasModel> = ArrayList()
 
 
-    //Constructor
+    /**Constructor*/
     fun DiasAdapter(dias: MutableList<DiasModel>) {
         this.dias = dias
 
     }
 
-    //Inflar diseño
+    /**Inflar diseño*/
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ViewHolder(
@@ -35,7 +35,7 @@ class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
         )
     }
 
-    //Ligar datos
+    /**Ligar datos*/
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         with(holder) {
@@ -62,7 +62,7 @@ class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
         }
     }
 
-    //devolver cantidad de elementos
+    /**devolver cantidad de elementos*/
     override fun getItemCount(): Int {
         return dias.size
     }
@@ -70,7 +70,7 @@ class DiasAdapter : RecyclerView.Adapter<DiasAdapter.ViewHolder>() {
 
 
 
-    //clase anidada
+    /**clase anidada*/
     inner class ViewHolder(val binding: CardView2Binding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {

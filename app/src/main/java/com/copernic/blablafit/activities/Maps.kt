@@ -34,7 +34,7 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         const val REQUEST_CODE_LOCATION = 0
     }
 
-    //Cargar el mapa
+    /**Cargar el mapa*/
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         createMarker()
@@ -42,7 +42,7 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         enableMyLocation()
     }
 
-    //Poner un marcador en ciudad
+    /**Poner un marcador en ciudad*/
     private fun createMarker() {
         val location: Location
         val favoritePlace = LatLng(41.56667, 2.01667)
@@ -54,7 +54,7 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         )
     }
 
-    //Crear activity
+    /**Crear activity*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_maps)
@@ -67,20 +67,20 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
 
     }
 
-    //Insertar map fragment
+    /**Insertar map fragment*/
     private fun createMapFragment() {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-    //Comprobar permisos
+    /**Comprobar permisos*/
     private fun isPermissionsGranted() = ContextCompat.checkSelfPermission(
         this,
         Manifest.permission.ACCESS_FINE_LOCATION
     ) == PackageManager.PERMISSION_GRANTED
 
-    //Activar geolocalizacion
+    /**Activar geolocalizacion*/
     private fun enableMyLocation() {
         if (!::map.isInitialized) return
         if (isPermissionsGranted()) {
@@ -90,7 +90,7 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         }
     }
 
-    //Solicitar permisos de geolocalizacion
+    /**Solicitar permisos de geolocalizacion*/
     private fun requestLocationPermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(
                 this,
@@ -107,7 +107,7 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         }
     }
 
-    //Verificar permisos seleccionados por el usuario
+    /**Verificar permisos seleccionados por el usuario*/
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -139,13 +139,13 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
             ).show()
         }
     }
-    //Mover camara a la ubicacion actual
+    /**Mover camara a la ubicacion actual*/
     override fun onMyLocationButtonClick(): Boolean {
         return false
     }
 
-    //Mostrar nutricionistas en el mapa
-    //Deben estar registrados en la base de datos
+    /**Mostrar nutricionistas en el mapa*/
+    /**Deben estar registrados en la base de datos*/
     private fun filtrarNutricionista() {
 
         ubicaciones.document("Nutricionistas").get().addOnSuccessListener {
@@ -169,8 +169,8 @@ class Maps : FragmentActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
 
 
     }
-    //Mostrar gimnasios
-    // Deben estar registrados en la base de datos
+    /**Mostrar gimnasios*/
+    /**Deben estar registrados en la base de datos*/
     private fun filtrarGimnasios() {
         ubicaciones.document("Gimnasios").get().addOnSuccessListener {
             val datos = it.data as Map<String, *>

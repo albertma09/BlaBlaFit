@@ -128,12 +128,12 @@ class MainApp : AppCompatActivity()  {
 
                 }
                 R.id.CerrarMenu -> {
-                    //Meter pop up de cierre de sesion
+                    /**Meter pop up de cierre de sesion*/
                     Toast.makeText(this@MainApp, "third Item Clicked", Toast.LENGTH_SHORT)
                         .show()
                 }
                 R.id.imageView8 -> {
-                    //imagen perfil
+                    /**imagen perfil*/
 
                     Navigation.findNavController(binding.navHostFragment)
                         .navigate(R.id.action_global_perfilPersonal2)
@@ -195,7 +195,7 @@ class MainApp : AppCompatActivity()  {
 
     }
 
-    //Obtener posicion actual
+    /**Obtener posicion actual*/
     private fun getCurrentLocation() {
         if (checkPermission()) {
             if (ActivityCompat.checkSelfPermission(
@@ -240,7 +240,7 @@ class MainApp : AppCompatActivity()  {
         private const val PERMISSION_REQUEST_ACCESS_LOCATION = 1000
     }
 
-    //Solicitar permisos
+    /**Solicitar permisos*/
     private fun requestPermission() {
         ActivityCompat.requestPermissions(
             this, arrayOf(
@@ -251,7 +251,7 @@ class MainApp : AppCompatActivity()  {
         )
     }
 
-    //Comprobar permisos
+    /**Comprobar permisos*/
     private fun checkPermission(): Boolean {
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -268,7 +268,7 @@ class MainApp : AppCompatActivity()  {
         return false
     }
 
-    //Verificar la confirmacion del usuario
+    /**Verificar la confirmacion del usuario*/
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -289,7 +289,7 @@ class MainApp : AppCompatActivity()  {
     }
 
 
-    //Verificar que la geolocalizacion esté activada
+    /**Verificar que la geolocalizacion esté activada*/
     private fun isLocationEnabled(): Boolean {
         val locationManager: LocationManager =
             getSystemService(Context.LOCATION_SERVICE) as LocationManager
