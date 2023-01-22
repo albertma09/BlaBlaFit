@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.copernic.blablafit.activities.Alimentacion
@@ -74,64 +75,75 @@ class DadesPersonals : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMddyyyy"))
         auth = Firebase.auth
-        db.collection("usuarios").document(auth.uid.toString()).collection("alimentos").document(datetime).get()
-            .addOnSuccessListener {
-                var alimento = it.get("alimentos") as ArrayList <Alimentacion>
-                var tamaño = alimento!!.size
-                var cuenta= 0
-                println("$alimento")
-                val docAlimentos = db.collection("Alimentacion").get().addOnSuccessListener {
-                    documents->
-                        while(cuenta<tamaño!!) {
-                            val obj2 = alimento!![cuenta] as HashMap<*, Alimentacion>
-                            val cantidad = Integer.parseInt(obj2["cantidad"].toString())
-                            val nombre = obj2["nombre"].toString()
-                            println("$nombre")
-                            for (document in documents){
-                                println(document.id)
-                                if ((document.id).equals(nombre)){
-                                    println("fdfksdnfjsdnfsd")
-                                    var calorias = document.get("calorias").toString().toFloat()*cantidad/100
-                                    var proteinas = document.get("proteinas").toString().toFloat()*cantidad/100
-                                    var carbohidratos = document.get("carbohidratos").toString().toFloat()*cantidad/100
-                                    var grasas = document.get("grasas").toString().toFloat()*cantidad/100
-                                    caloriasTotat += calorias
-                                    proteinasTotat += proteinas
-                                    carbohidratosTotat += carbohidratos
-                                    grasasTotat += grasas
+
+            db.collection("usuarios").document(auth.uid.toString()).collection("alimentos").document(datetime).get()
+                .addOnSuccessListener {
+                    var alimento:ArrayList<Alimentacion> = ArrayList()
+                    try{
+                    alimento = it.get("alimentos") as ArrayList<Alimentacion>
+                        var tamaño = alimento.size
+                        var cuenta= 0
+                        println("$alimento")
+
+                        db.collection("Alimentacion").get().addOnSuccessListener {
+                                documents->
+                            while(cuenta<tamaño!!) {
+                                val obj2 = alimento!![cuenta] as HashMap<*, Alimentacion>
+                                val cantidad = Integer.parseInt(obj2["cantidad"].toString())
+                                val nombre = obj2["nombre"].toString()
+                                println("$nombre")
+                                for (document in documents){
+                                    println(document.id)
+                                    if ((document.id).equals(nombre)){
+                                        println("fdfksdnfjsdnfsd")
+                                        var calorias = document.get("calorias").toString().toFloat()*cantidad/100
+                                        var proteinas = document.get("proteinas").toString().toFloat()*cantidad/100
+                                        var carbohidratos = document.get("carbohidratos").toString().toFloat()*cantidad/100
+                                        var grasas = document.get("grasas").toString().toFloat()*cantidad/100
+                                        caloriasTotat += calorias
+                                        proteinasTotat += proteinas
+                                        carbohidratosTotat += carbohidratos
+                                        grasasTotat += grasas
+                                    }
+
+                                }
+                                cuenta++
                             }
-
+                            _binding.piechart.addPieSlice(
+                                PieModel(
+                                    "Calorias", caloriasTotat,
+                                    Color.parseColor("#FFA726")
+                                )
+                            )
+                            _binding.piechart.addPieSlice(
+                                PieModel(
+                                    "Proteinas", proteinasTotat,
+                                    Color.parseColor("#66BB6A")
+                                )
+                            )
+                            _binding.piechart.addPieSlice(
+                                PieModel(
+                                    "Carbohidratos", carbohidratosTotat,
+                                    Color.parseColor("#EF5350")
+                                )
+                            )
+                            _binding.piechart.addPieSlice(
+                                PieModel(
+                                    "Grasas", grasasTotat,
+                                    Color.parseColor("#29B6F6")
+                                )
+                            )
                         }
-                            cuenta++
-                }
-                    _binding.piechart.addPieSlice(
-                        PieModel(
-                            "Calorias", caloriasTotat,
-                            Color.parseColor("#FFA726")
-                        )
-                    )
-                    _binding.piechart.addPieSlice(
-                        PieModel(
-                            "Proteinas", proteinasTotat,
-                            Color.parseColor("#66BB6A")
-                        )
-                    )
-                    _binding.piechart.addPieSlice(
-                        PieModel(
-                            "Carbohidratos", carbohidratosTotat,
-                            Color.parseColor("#EF5350")
-                        )
-                    )
-                    _binding.piechart.addPieSlice(
-                        PieModel(
-                            "Grasas", grasasTotat,
-                            Color.parseColor("#29B6F6")
-                        )
-                    )
+                }catch (e:java.lang.NullPointerException){
+                    Toast.makeText(activity, "tienes que añadir un alimento para cargar la grafica",Toast.LENGTH_LONG).show()
                 }
 
-    }
-    }
+                    }
+        }
+
+
+
+
 
     fun updateBar(){
 

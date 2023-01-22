@@ -10,15 +10,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.copernic.blablafit.activities.ContactoModel
 import com.copernic.blablafit.activities.ContactosAdapter
-import com.copernic.blablafit.activities.DiasModel
-import com.copernic.blablafit.databinding.ActivityRecyclerViewBinding
-import com.copernic.blablafit.databinding.FragmentRutinas3Binding
 import com.copernic.blablafit.databinding.FragmentRutinas4Binding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -51,7 +47,20 @@ class rutinas4 : Fragment() {
 
     }
 
+    /**
 
+    Método encargado de crear la vista del fragmento. Infla el layout y configura el recyclerview.
+
+    También se encarga de mostrar un efecto shimmer mientras se cargan los datos.
+
+    @param inflater LayoutInflater necesario para inflar el layout
+
+    @param container contenedor donde se va a mostrar la vista
+
+    @param savedInstanceState estado guardado de la instancia
+
+    @return la vista creada
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -72,7 +81,12 @@ class rutinas4 : Fragment() {
         return root
         //return inflater.inflate(R.layout.fragment_rutinas4, container, false)
     }
+    /**
 
+    Método encargado de configurar el recyclerview.
+
+    Establece el tamaño fijo, el layout manager y el adaptador.
+     */
     private fun setupRecyclerView() {
 
         binding.recycler.setHasFixedSize(true)
@@ -81,19 +95,25 @@ class rutinas4 : Fragment() {
         binding.recycler.layoutManager = LinearLayoutManager(context)
 
 
-        myAdapter.ContactosAdapter(getAnimals())
+        myAdapter.ContactosAdapter(getRutinas())
 
 
         binding.recycler.adapter = myAdapter
 
     }
+    /**
 
+    Método encargado de obtener las rutinas de un usuario específico desde la base de datos.
+    Utiliza la información del usuario actualmente autenticado para obtener su rutina.
+    Utiliza una lista mutable para almacenar las rutinas obtenidas.
+    Utiliza un día específico para obtener los ejercicios correspondientes.
+    Descarga las imágenes de los ejercicios de Firebase Storage.
+    @return una lista mutable de objetos ContactoModel que representan las rutinas del usuario.
+     */
     @SuppressLint("SuspiciousIndentation")
-    private fun getAnimals(): MutableList<ContactoModel> {
+    private fun getRutinas(): MutableList<ContactoModel> {
         val rutinas: MutableList<ContactoModel> = arrayListOf()
         val dia = args.dia
-
-
         db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener { user->
             var documento = user.get("rutina") as String
             println(documento)
