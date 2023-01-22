@@ -38,7 +38,20 @@ class Rutinas3 : Fragment() {
         db = Firebase.firestore
         auth = Firebase.auth
     }
+    /**
 
+    Método encargado de crear la vista del fragmento. Infla el layout y configura los botones para seleccionar el lugar de entrenamiento.
+
+    Utiliza el método "rutina" para navegar a la siguiente pantalla.
+
+    @param inflater LayoutInflater necesario para inflar el layout
+
+    @param container contenedor donde se va a mostrar la vista
+
+    @param savedInstanceState estado guardado de la instancia
+
+    @return la vista creada
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,7 +78,18 @@ class Rutinas3 : Fragment() {
 
         return root
     }
+    /**
 
+    Método encargado de seleccionar la rutina adecuada para el usuario.
+
+    Utiliza los datos del usuario para comparar con las rutinas disponibles en la base de datos.
+
+    Si encuentra una rutina que se ajusta a los días de entrenamiento y lugar de entrenamiento del usuario, se actualiza en la base de datos.
+
+    Utiliza el objeto nav para navegar a la siguiente pantalla.
+
+    @param nav objeto View para navegar a la siguiente pantalla
+     */
     fun rutina(nav:View){
         db.collection("usuarios").document(auth.uid.toString()).get().addOnSuccessListener {
             var userDias = it.get("entrenoSemanal") as Long

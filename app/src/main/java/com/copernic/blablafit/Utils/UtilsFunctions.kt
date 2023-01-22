@@ -14,7 +14,7 @@ object UtilsFunctions {
         var pattern_password: Regex =
             ("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}\$").toRegex()
 
-        var pattern_mail: Regex = ("^[a-z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#\$%&'*+/=?^_" +
+        var pattern_mail: Regex = ("^[A-z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#\$%&'*+/=?^_" +
                 "`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)" +
                 "+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\$").toRegex()
 
